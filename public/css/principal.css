@@ -1,0 +1,264 @@
+/* 
+ *	By DrugsNTchiz 2013 
+ */ 
+ 
+@font-face {
+    font-family: 'AmaticSCRegular';
+    src: url('./police/AmaticSC-Regular-webfont.eot');
+    src: url('./police/AmaticSC-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./police/AmaticSC-Regular-webfont.woff') format('woff'),
+         url('./police/AmaticSC-Regular-webfont.ttf') format('truetype'),
+         url('./police/AmaticSC-Regular-webfont.svg#AmaticSCRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AmaticBold';
+    src: url('./police/Amatic-Bold-webfont.eot');
+    src: url('./police/Amatic-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./police/Amatic-Bold-webfont.woff') format('woff'),
+         url('./police/Amatic-Bold-webfont.ttf') format('truetype'),
+         url('./police/Amatic-Bold-webfont.svg#AmaticBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'QuicksandLight';
+    src: url('./police/Quicksand_Light-webfont.eot');
+    src: url('./police/Quicksand_Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./police/Quicksand_Light-webfont.woff') format('woff'),
+         url('./police/Quicksand_Light-webfont.ttf') format('truetype'),
+         url('./police/Quicksand_Light-webfont.svg#QuicksandLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ---------------------------------------------- */
+
+*{
+	background-color: #222222;
+	color: white;
+	font-size: 1.0em;
+	font-family: QuicksandLight, Arial,serif;
+	font-family: QuicksandLight, Arial,serif;
+}
+
+a{
+	background-color: inherit;
+	text-decoration: none;
+	color: inherit;
+}
+
+body{
+	width: 800px;
+	margin: auto;
+}
+
+div{
+	margin: 10px;
+}
+
+div.bandeau{
+	background: url('../media/images/bandeau_etiennevincent.jpg') no-repeat transparent;
+	width: 231px;
+	height: 600px;
+}
+
+div.homepage{
+	width: 400px;
+	float: left;
+	padding: 15px;
+	padding-top: 35px;
+}
+
+div.homepage *{
+	background: inherit;
+}
+
+div.homepage a{
+	font-size: 0.9em;
+}
+
+
+img{
+	display: block;
+}
+
+div.homepage article img{
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+h1{
+	margin: 0px;
+	width: 900px;
+	font-family: AmaticSCRegular, serif;
+	font-size: 2.3em;
+}
+
+h1 .mini{
+	/* font-family: inherit;
+	font-size: 2.0em; */
+}
+
+h2{
+	margin: 0px;
+	text-align: center;
+}
+
+h3{
+	text-align: center;
+	margin: 0px;
+	margin-bottom: 15px;
+}
+
+div.menu h1{
+	width: 215px;
+	padding-left: 0px;
+	text-align: right;
+	float:left;
+}
+
+li{
+	padding: 10px;
+}
+
+div.homepage article{
+	margin-bottom: 35px;
+	width: 250px;
+	padding: 10px;
+	border: 2px solid #FFA07A;
+}
+
+div.homepage article header, h2{
+	font-family: AmaticSCRegular, serif;
+	font-size: 1.6em;
+}
+
+div.homepage article header{
+	
+	margin-top: -35px;
+	background: none;
+	padding-left: 5px;
+	height: 50px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+nav.principal ul{
+	width: 725px;
+	margin: 0px;
+}
+
+ul li{
+	cursor: pointer;
+}
+
+nav.principal ul li{
+	border: thin solid #222222;
+}
+
+nav.principal ul li:hover, nav.principal ul li.isWorking{
+	border-bottom: thin solid #666666;
+}
+
+nav.secondaire ul{
+	margin-left: -55px;
+	background: none;
+	font-size: 0.9em;
+	position: absolute;
+	z-index: 2;
+	top: 150px;
+	left: 80px;
+}
+
+span.sous-secondaire, span.sous-secondaire a{
+	background: none;
+	display: block;
+}
+span.sous-secondaire{
+	margin-top: 5px;
+	padding-left: 15px;
+}
+
+span.sous-secondaire a:hover, span.sous-secondaire a.actif{
+	text-decoration: underline; 
+}
+
+h1, li, div.homepage a{
+	color: #FFA07A;
+}
+
+nav.secondaire ul li{
+	margin-bottom: 15px;
+	color: #D2B48C;
+	border-left: none;
+	background-color: #111111;
+	width: 130px;
+}
+
+nav.secondaire ul li:hover, nav.secondaire ul li.actif{
+	width: 150px;
+	color: #FFA07A;
+}
+
+nav.principal ul, li, div.homepage{
+	background: #111111;
+}
+
+div.homepage article:hover{
+	background-color: #222222;
+}
+
+audio, div.homepage article{
+	margin-left: 50px;
+}
+
+
+h1, div, article, ul, nav.principal ul li{
+	float: left;
+}
+
+div.biographie{
+	width: 450px;
+	padding: 35px;
+	padding-top: 0px;
+}
+
+div.biographie{
+	background: #111111;
+}
+
+div.biographie *{
+	background: inherit;
+}
+
+div.biographie p{
+	color: #aaaaaa;
+}
+
+strong{
+	color: #dddddd;
+	font-weight: bold;
+}
+
+div.agenda article{
+	width: 500px;
+	text-align: center;
+	background: #111111;
+}
+
+div.agenda article header, div.agenda article footer{
+	color: #FFA07A;
+}
+
+div.agenda article footer{
+	font-size: 0.8em;
+}

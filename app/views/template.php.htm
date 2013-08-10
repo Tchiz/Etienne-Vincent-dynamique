@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/ -->
+<html lang="fr-FR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Laravel 4 : chapitre 7 : Un exemple de site statique | Laravel</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./template.php_files/style.css">
+<link rel="pingback" href="http://laravel.sl-creation.org/xmlrpc.php">
+<link rel="alternate" type="application/rss+xml" title="Laravel » Flux" href="http://laravel.sl-creation.org/feed/">
+<link rel="alternate" type="application/rss+xml" title="Laravel » Flux des commentaires" href="http://laravel.sl-creation.org/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Laravel » Laravel 4 : chapitre 7 : Un exemple de site statique Flux des commentaires" href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/feed/">
+<link rel="stylesheet" id="jetpack-widgets-css" href="./template.php_files/widgets.css" type="text/css" media="all">
+<link rel="stylesheet" id="codecolorer-css" href="./template.php_files/codecolorer.css" type="text/css" media="screen">
+<link rel="stylesheet" id="core3.0-css" href="./template.php_files/shCore.css" type="text/css" media="all">
+<link rel="stylesheet" id="core-RDark3.0-css" href="./template.php_files/shCoreRDark.css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-RDark3.0-css" href="./template.php_files/shThemeRDark.css" type="text/css" media="all">
+<script src="./template.php_files/quant.js" async="" type="text/javascript"></script><script type="text/javascript" src="./template.php_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./template.php_files/jquery.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://laravel.sl-creation.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://laravel.sl-creation.org/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Laravel 4 : chapitre 6 : Les vues" href="http://laravel.sl-creation.org/laravel-4-chapitre-6-les-vues/">
+<link rel="next" title="Laravel 4 : chapitre 8 : Blade" href="http://laravel.sl-creation.org/laravel-4-chapitre-8-blade/">
+<meta name="generator" content="WordPress 3.5.2">
+<link rel="canonical" href="./template.php_files/template.php.htm">
+<link rel="shortlink" href="http://wp.me/p34LlM-2R">
+
+<!-- WP SyntaxHighlighter Ver.1.7.3 CSS for code Begin -->
+<style type="text/css">
+.syntaxhighlighter,
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+padding: 4px !important;
+font-size: 14px !important; /* Set the font size in pixels */  
+font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; /* Set the font type */  
+}
+.syntaxhighlighter table caption {
+/* For Title(Caption) */  
+font-size: 14px !important; /* Set the font size in pixels */  
+font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; /* Set the font type */  
+}
+.syntaxhighlighter.nogutter td.code .line {
+/* Set the left padding space when no-gutter in ver. 3.0 */ 
+padding-left: 3px !important;
+}
+.syntaxhighlighter {
+/* For Chrome/Safari(WebKit) */  
+/* Hide the superfluous vertical scrollbar in ver. 3.0 */  
+overflow-y: hidden !important;
+padding: 1px !important;
+}
+.widget-area.syntaxhighlighter a,
+.widget-area.syntaxhighlighter div,
+.widget-area.syntaxhighlighter code,
+.widget-area.syntaxhighlighter table,
+.widget-area.syntaxhighlighter table td,
+.widget-area.syntaxhighlighter table tr,
+.widget-area.syntaxhighlighter table tbody,
+.widget-area.syntaxhighlighter table thead,
+.widget-area.syntaxhighlighter table caption,
+.widget-area.syntaxhighlighter textarea {
+/* For Widget */  
+font-size: 14px !important; /* Set the font size in pixels */  
+font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; /* Set the font type */  
+}
+.widget-area table caption {
+/* For Widget */  
+/* For Title(Caption) */  
+font-size: 10px !important; /* Set the font size in pixels */  
+font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important; /* Set the font type */  
+}
+</style>
+<!-- WP SyntaxHighlighter Ver.1.7.3 CSS for code End -->
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel 4 : chapitre 7 : Un exemple de site statique">
+<meta property="og:url" content="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/">
+<meta property="og:description" content="Avec tout ce que nous avons vu jusqu&#39;à présent il est tout à fait possible de réaliser un petit moteur de site statique et il est grand temps de mettre un peu en pratique tous ces éléments. Commenç...">
+<meta property="og:site_name" content="Laravel">
+<meta property="og:image" content="http://laravel.sl-creation.org/wp-content/uploads/2013/01/img25.png">
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #97b6e5; }
+</style>
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./template.php_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./template.php_files/services.css"></head>
+
+<body class="single single-post postid-177 single-format-standard custom-background">
+<div id="wrapper" class="hfeed">
+	<div id="header">
+		<div id="masthead">
+			<div id="branding" role="banner">
+								<div id="site-title">
+					<span>
+						<a href="http://laravel.sl-creation.org/" title="Laravel" rel="home">Laravel</a>
+					</span>
+				</div>
+				<div id="site-description">Un framework qui rend heureux…</div>
+
+										<img src="./template.php_files/cropped-ban1.jpg" width="940" height="198" alt="">
+								</div><!-- #branding -->
+
+			<div id="access" role="navigation">
+			  				<div class="skip-link screen-reader-text"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#content" title="Aller au contenu">Aller au contenu</a></div>
+								<div class="menu-header"><ul id="menu-general" class="menu"><li id="menu-item-228" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-228"><a href="http://laravel.sl-creation.org/">Accueil</a></li>
+<li id="menu-item-227" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-227"><a href="http://laravel.sl-creation.org/category/actus/">Actualités</a></li>
+<li id="menu-item-488" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-488"><a href="http://laravel.sl-creation.org/laravel-4/">Laravel 4</a></li>
+<li id="menu-item-850" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-850"><a href="http://laravel.sl-creation.org/php-objet/">PHP objet</a></li>
+</ul></div>			</div><!-- #access -->
+		</div><!-- #masthead -->
+	</div><!-- #header -->
+
+	<div id="main">
+
+		<div id="container">
+			<div id="content" role="main">
+
+			
+
+				<div id="nav-above" class="navigation">
+					<div class="nav-previous"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-les-vues/" rel="prev"><span class="meta-nav">←</span> Laravel 4 : chapitre 6 : Les vues</a></div>
+					<div class="nav-next"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-8-blade/" rel="next">Laravel 4 : chapitre 8 : Blade <span class="meta-nav">→</span></a></div>
+				</div><!-- #nav-above -->
+
+				<div id="post-177" class="post-177 post type-post status-publish format-standard hentry category-laravel_4">
+					<h1 class="entry-title">Laravel 4 : chapitre 7 : Un exemple de site statique</h1>
+
+					<div class="entry-meta">
+						<span class="meta-prep meta-prep-author">Publié le</span> <a href="./template.php_files/template.php.htm" title="13 h 33 min" rel="bookmark"><span class="entry-date">19 janvier 2013</span></a> <span class="meta-sep">par</span> <span class="author vcard"><a class="url fn n" href="http://laravel.sl-creation.org/author/lara/" title="Afficher tous les articles par bestmomo">bestmomo</a></span>					</div><!-- .entry-meta -->
+
+					<div class="entry-content">
+						<p style="text-align: justify;">Avec tout ce que nous avons vu jusqu’à présent il est tout à fait possible de réaliser un petit moteur de site statique et il est grand temps de mettre un peu en pratique tous ces éléments. Commençons par réaliser le template HTML de la page. Personnellement je commence par réaliser dans un premier une page HTML pour régler tous les aspects stylistiques. J’utilise Bootstrap de Twitter pour simplifier la mise en page et le style.</p>
+<h2 style="text-align: justify;">Préparation</h2>
+<p style="text-align: justify;">Pour l’utilisation de Bootstrap vous devez télécharger les fichiers <a href="http://twitter.github.com/bootstrap/">sur le site du framework</a>. Créez un dossier <span style="color: #0000ff;">public/assets/css</span> et placez-y ces fichiers que vous récupérez dans l’archive téléchargée :</p>
+<p><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/img27/" rel="attachment wp-att-190"><img class="size-full wp-image-190 aligncenter" alt="img27" src="./template.php_files/img27.png" width="274" height="105"></a></p>
+<h2 style="text-align: justify;">Création de la page</h2>
+<p style="text-align: justify;">Voici ce que je vous propose :</p>
+<div><div id="highlighter_854240" class="syntaxhighlighter nogutter notranslate html"><div class="toolbar"><span><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">&lt;!DOCTYPE html&gt;</code></div><div class="line number2 index1 alt1"><code class="html plain">&lt;</code><code class="html keyword">html</code> <code class="html color1">lang</code><code class="html plain">=</code><code class="html string">"fr"</code><code class="html plain">&gt;</code></div><div class="line number3 index2 alt2"><code class="html plain">&lt;</code><code class="html keyword">head</code><code class="html plain">&gt;</code></div><div class="line number4 index3 alt1"><code class="html plain">&lt;</code><code class="html keyword">meta</code> <code class="html color1">charset</code><code class="html plain">=</code><code class="html string">"utf-8"</code><code class="html plain">&gt;</code></div><div class="line number5 index4 alt2"><code class="html plain">&lt;</code><code class="html keyword">title</code><code class="html plain">&gt;Mon beau site&lt;/</code><code class="html keyword">title</code><code class="html plain">&gt;</code></div><div class="line number6 index5 alt1"><code class="html plain">&lt;</code><code class="html keyword">meta</code> <code class="html color1">name</code><code class="html plain">=</code><code class="html string">"viewport"</code> <code class="html color1">content</code><code class="html plain">=</code><code class="html string">"width=device-width, initial-scale=1.0"</code><code class="html plain">&gt;</code></div><div class="line number7 index6 alt2"><code class="html plain">&lt;</code><code class="html keyword">link</code> <code class="html color1">href</code><code class="html plain">=</code><code class="html string">"assets/css/bootstrap.min.css"</code> <code class="html color1">rel</code><code class="html plain">=</code><code class="html string">"stylesheet"</code> <code class="html color1">type</code><code class="html plain">=</code><code class="html string">"text/css"</code><code class="html plain">&gt;</code></div><div class="line number8 index7 alt1"><code class="html plain">&lt;</code><code class="html keyword">link</code> <code class="html color1">href</code><code class="html plain">=</code><code class="html string">"assets/css/bootstrap-responsive.min.css"</code> <code class="html color1">rel</code><code class="html plain">=</code><code class="html string">"stylesheet"</code><code class="html plain">&gt;</code></div><div class="line number9 index8 alt2"><code class="html plain">&lt;</code><code class="html keyword">link</code> <code class="html color1">href</code><code class="html plain">=</code><code class="html string">"assets/css/main.css"</code> <code class="html color1">rel</code><code class="html plain">=</code><code class="html string">"stylesheet"</code> <code class="html color1">type</code><code class="html plain">=</code><code class="html string">"text/css"</code><code class="html plain">&gt;</code></div><div class="line number10 index9 alt1"><code class="html comments">&lt;!-- HTML5 shim, for IE6-8 support of HTML5 elements --&gt;</code></div><div class="line number11 index10 alt2"><code class="html comments">&lt;!--[if lt IE 9]&gt;</code></div><div class="line number12 index11 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html comments">&lt;script src="<a href="http://html5shim.googlecode.com/svn/trunk/html5.js">http://html5shim.googlecode.com/svn/trunk/html5.js</a>"&gt;&lt;/script&gt;</code></div><div class="line number13 index12 alt2"><code class="html comments">&lt;![endif]--&gt;</code></div><div class="line number14 index13 alt1"><code class="html plain">&lt;/</code><code class="html keyword">head</code><code class="html plain">&gt;</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="html plain">&lt;</code><code class="html keyword">body</code><code class="html plain">&gt;</code></div><div class="line number17 index16 alt2"><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"container"</code><code class="html plain">&gt;</code></div><div class="line number18 index17 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">header</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"row"</code><code class="html plain">&gt;</code></div><div class="line number19 index18 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"span12"</code><code class="html plain">&gt;</code></div><div class="line number20 index19 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"hero-unit"</code><code class="html plain">&gt;</code></div><div class="line number21 index20 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">h1</code><code class="html plain">&gt;Mon beau site !&lt;/</code><code class="html keyword">h1</code><code class="html plain">&gt;</code></div><div class="line number22 index21 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number23 index22 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number24 index23 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">header</code><code class="html plain">&gt;</code></div><div class="line number25 index24 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">nav</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"row"</code><code class="html plain">&gt;</code></div><div class="line number26 index25 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"navbar span12"</code><code class="html plain">&gt;</code></div><div class="line number27 index26 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"navbar-inner"</code><code class="html plain">&gt; &lt;</code><code class="html keyword">a</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"btn btn-navbar"</code> <code class="html color1">data-toggle</code><code class="html plain">=</code><code class="html string">"collapse"</code> <code class="html color1">data-target</code><code class="html plain">=</code><code class="html string">".nav-collapse"</code><code class="html plain">&gt; &lt;</code><code class="html keyword">span</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"icon-bar"</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">span</code><code class="html plain">&gt; &lt;</code><code class="html keyword">span</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"icon-bar"</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">span</code><code class="html plain">&gt; &lt;</code><code class="html keyword">span</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"icon-bar"</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">span</code><code class="html plain">&gt; &lt;/</code><code class="html keyword">a</code><code class="html plain">&gt;</code></div><div class="line number28 index27 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"nav-collapse collapse"</code><code class="html plain">&gt;</code></div><div class="line number29 index28 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">ul</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"nav"</code><code class="html plain">&gt;</code></div><div class="line number30 index29 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">li</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"active"</code><code class="html plain">&gt;&lt;</code><code class="html keyword">a</code> <code class="html color1">href</code><code class="html plain">=</code><code class="html string">"0"</code><code class="html plain">&gt;Accueil&lt;/</code><code class="html keyword">a</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">li</code><code class="html plain">&gt;</code></div><div class="line number31 index30 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">li</code><code class="html plain">&gt;&lt;</code><code class="html keyword">a</code> <code class="html color1">href</code><code class="html plain">=</code><code class="html string">"1"</code><code class="html plain">&gt;Page1&lt;/</code><code class="html keyword">a</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">li</code><code class="html plain">&gt;</code></div><div class="line number32 index31 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">li</code><code class="html plain">&gt;&lt;</code><code class="html keyword">a</code> <code class="html color1">href</code><code class="html plain">=</code><code class="html string">"2"</code><code class="html plain">&gt;Page2&lt;/</code><code class="html keyword">a</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">li</code><code class="html plain">&gt;</code></div><div class="line number33 index32 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">li</code><code class="html plain">&gt;&lt;</code><code class="html keyword">a</code> <code class="html color1">href</code><code class="html plain">=</code><code class="html string">"3"</code><code class="html plain">&gt;Page3&lt;/</code><code class="html keyword">a</code><code class="html plain">&gt;&lt;/</code><code class="html keyword">li</code><code class="html plain">&gt;</code></div><div class="line number34 index33 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">ul</code><code class="html plain">&gt;</code></div><div class="line number35 index34 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number36 index35 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number37 index36 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number38 index37 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">nav</code><code class="html plain">&gt;</code></div><div class="line number39 index38 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">section</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"row"</code><code class="html plain">&gt;</code></div><div class="line number40 index39 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">div</code> <code class="html color1">class</code><code class="html plain">=</code><code class="html string">"span12"</code><code class="html plain">&gt; Contenu de la page&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number41 index40 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">section</code><code class="html plain">&gt;</code></div><div class="line number42 index41 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">hr</code><code class="html plain">&gt;</code></div><div class="line number43 index42 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">footer</code> <code class="html color1">id</code><code class="html plain">=</code><code class="html string">"bas"</code><code class="html plain">&gt; © Mon beau site... &lt;/</code><code class="html keyword">footer</code><code class="html plain">&gt;</code></div><div class="line number44 index43 alt1"><code class="html plain">&lt;/</code><code class="html keyword">div</code><code class="html plain">&gt;</code></div><div class="line number45 index44 alt2"><code class="html plain">&lt;/</code><code class="html keyword">body</code><code class="html plain">&gt;</code></div><div class="line number46 index45 alt1"><code class="html plain">&lt;/</code><code class="html keyword">html</code><code class="html plain">&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p>Avec cette feuille de style que vous appelez <span style="color: #0000ff;">main.css</span> et que vous placez dans le dossier <span style="color: #0000ff;">public/assets/css</span> :</p>
+<div><div id="highlighter_18264" class="syntaxhighlighter nogutter notranslate css"><div class="toolbar"><span><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="css plain">@charset </code><code class="css string">"utf-8"</code><code class="css plain">;</code></div><div class="line number2 index1 alt1"><code class="css plain">body {</code></div><div class="line number3 index2 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">padding-top</code><code class="css plain">: </code><code class="css value">20px</code><code class="css plain">;</code></div><div class="line number4 index3 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">min-height</code><code class="css plain">: </code><code class="css value">2000px</code><code class="css plain">;</code></div><div class="line number5 index4 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">color</code><code class="css plain">: </code><code class="css value">#252</code><code class="css plain">;</code></div><div class="line number6 index5 alt1"><code class="css plain">}</code></div><div class="line number7 index6 alt2"><code class="css plain">body, .hero-unit, .navbar-inner {</code></div><div class="line number8 index7 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">background</code><code class="css plain">: -moz-radial-gradient(</code><code class="css value">top</code> <code class="css value">left</code><code class="css plain">, rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">160</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,.</code><code class="css value">5</code><code class="css plain">), rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">240</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">));</code></div><div class="line number9 index8 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">background</code><code class="css plain">: -webkit-radial-gradient(</code><code class="css value">top</code> <code class="css value">left</code><code class="css plain">, rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">255</code><code class="css plain">,.</code><code class="css value">5</code><code class="css plain">), rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">240</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">));</code></div><div class="line number10 index9 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">background</code><code class="css plain">: -ms-radial-gradient(</code><code class="css value">top</code> <code class="css value">left</code><code class="css plain">, rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">160</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,.</code><code class="css value">5</code><code class="css plain">), rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">240</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">));</code></div><div class="line number11 index10 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">background</code><code class="css plain">: -o-radial-gradient(</code><code class="css value">top</code> <code class="css value">left</code><code class="css plain">, rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">160</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,.</code><code class="css value">5</code><code class="css plain">), rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">240</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">));</code></div><div class="line number12 index11 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=</code><code class="css string">'#8383FF'</code><code class="css plain">, endColorstr=</code><code class="css string">'#D8D8FF'</code><code class="css plain">, GradientType=</code><code class="css value">0</code><code class="css plain">);</code></div><div class="line number13 index12 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">background</code><code class="css plain">: radial-gradient(</code><code class="css value">top</code> <code class="css value">left</code><code class="css plain">, rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">160</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,.</code><code class="css value">5</code><code class="css plain">), rgba(</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">240</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">,</code><code class="css value">0</code><code class="css plain">));&nbsp;&nbsp; </code></div><div class="line number14 index13 alt1"><code class="css plain">}</code></div><div class="line number15 index14 alt2"><code class="css plain">#bas {</code></div><div class="line number16 index15 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">text-align</code><code class="css plain">: </code><code class="css value">center</code><code class="css plain">;</code></div><div class="line number17 index16 alt2"><code class="css plain">}</code></div><div class="line number18 index17 alt1"><code class="css plain">p {</code></div><div class="line number19 index18 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">text-align</code><code class="css plain">: </code><code class="css value">justify</code><code class="css plain">;</code></div><div class="line number20 index19 alt1"><code class="css plain">}</code></div><div class="line number21 index20 alt2"><code class="css plain">.hero-unit {</code></div><div class="line number22 index21 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">padding</code><code class="css plain">: </code><code class="css value">30px</code><code class="css plain">;</code></div><div class="line number23 index22 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">border-radius:</code><code class="css value">20px</code><code class="css plain">;</code></div><div class="line number24 index23 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">color</code><code class="css plain">:</code><code class="css value">#90d</code><code class="css plain">;</code></div><div class="line number25 index24 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">text-shadow</code><code class="css plain">: </code><code class="css value">0</code> <code class="css value">2px</code> <code class="css value">0</code> <code class="css value">#FFFFFF</code><code class="css plain">;</code></div><div class="line number26 index25 alt1"><code class="css plain">}</code></div><div class="line number27 index26 alt2"><code class="css plain">.hero-unit p {</code></div><div class="line number28 index27 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">text-shadow</code><code class="css plain">: </code><code class="css value">0</code> <code class="css value">1px</code> <code class="css value">0</code> <code class="css value">#FFFFFF</code><code class="css plain">;</code></div><div class="line number29 index28 alt2"><code class="css plain">}</code></div><div class="line number30 index29 alt1"><code class="css plain">.hero-unit, .navbar {</code></div><div class="line number31 index30 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">box-shadow: </code><code class="css value">3px</code> <code class="css value">3px</code> <code class="css value">3px</code> <code class="css value">#059</code><code class="css plain">;</code></div><div class="line number32 index31 alt1"><code class="css plain">}</code></div><div class="line number33 index32 alt2"><code class="css plain">.well {</code></div><div class="line number34 index33 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">box-shadow: </code><code class="css value">3px</code> <code class="css value">3px</code> <code class="css value">3px</code> <code class="css value">#559</code><code class="css plain">;</code></div><div class="line number35 index34 alt2"><code class="css plain">}</code></div><div class="line number36 index35 alt1"><code class="css plain">.navbar .nav &gt; li &gt; a {</code></div><div class="line number37 index36 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">color</code><code class="css plain">: </code><code class="css value">#90d</code><code class="css plain">;</code></div><div class="line number38 index37 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">font-size</code><code class="css plain">: </code><code class="css value">16px</code><code class="css plain">;</code></div><div class="line number39 index38 alt2"><code class="css plain">}</code></div><div class="line number40 index39 alt1"><code class="css plain">.navbar .nav &gt; .active &gt; a, .navbar .nav &gt; .active &gt; a:hover, .navbar .nav &gt; .active &gt; a:focus {</code></div><div class="line number41 index40 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">background-color</code><code class="css plain">: </code><code class="css value">#4c4</code><code class="css plain">;</code></div><div class="line number42 index41 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">box-shadow: </code><code class="css value">1px</code> <code class="css value">1px</code> <code class="css value">1px</code> <code class="css value">1px</code> <code class="css value">#059</code><code class="css plain">;</code></div><div class="line number43 index42 alt2"><code class="css plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>Ce qui donne ce visuel :</p>
+<h2><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/img25/" rel="attachment wp-att-178"><img class=" wp-image-178 aligncenter" alt="img25" src="./template.php_files/img25.png" width="687" height="245"></a></h2>
+<p>Normalement vous avez ces trois fichiers dans le dossier&nbsp; public/assets/css :</p>
+<p style="text-align: center;"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/img28/" rel="attachment wp-att-191"><img class="alignnone size-full wp-image-191" alt="img28" src="./template.php_files/img28.png" width="263" height="122"></a></p>
+<h2>Le template</h2>
+<p style="text-align: justify;">A partir du code HTML nous allons insérer le code PHP pour rendre notre page dynamique. Essentiellement nous voulons adapter le menu et le contenu :</p>
+<div><div id="highlighter_14445" class="syntaxhighlighter nogutter notranslate php"><div class="toolbar"><span><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">&lt;!DOCTYPE html&gt;</code></div><div class="line number2 index1 alt1"><code class="php plain">&lt;html lang=</code><code class="php string">"fr"</code><code class="php plain">&gt;</code></div><div class="line number3 index2 alt2"><code class="php plain">&lt;head&gt;</code></div><div class="line number4 index3 alt1"><code class="php plain">&lt;meta charset=</code><code class="php string">"utf-8"</code><code class="php plain">&gt;</code></div><div class="line number5 index4 alt2"><code class="php plain">&lt;title&gt;Mon beau site&lt;/title&gt;</code></div><div class="line number6 index5 alt1"><code class="php plain">&lt;meta name=</code><code class="php string">"viewport"</code> <code class="php plain">content=</code><code class="php string">"width=device-width, initial-scale=1.0"</code><code class="php plain">&gt;</code></div><div class="line number7 index6 alt2"><code class="php plain">&lt;link href=</code><code class="php string">"assets/css/bootstrap.min.css"</code> <code class="php plain">rel=</code><code class="php string">"stylesheet"</code> <code class="php plain">type=</code><code class="php string">"text/css"</code><code class="php plain">&gt;</code></div><div class="line number8 index7 alt1"><code class="php plain">&lt;link href=</code><code class="php string">"assets/css/bootstrap-responsive.min.css"</code> <code class="php plain">rel=</code><code class="php string">"stylesheet"</code><code class="php plain">&gt;</code></div><div class="line number9 index8 alt2"><code class="php plain">&lt;link href=</code><code class="php string">"assets/css/main.css"</code> <code class="php plain">rel=</code><code class="php string">"stylesheet"</code> <code class="php plain">type=</code><code class="php string">"text/css"</code><code class="php plain">&gt;</code></div><div class="line number10 index9 alt1"><code class="php plain">&lt;!-- HTML5 shim, </code><code class="php keyword">for</code> <code class="php plain">IE6-8 support of HTML5 elements --&gt;</code></div><div class="line number11 index10 alt2"><code class="php plain">&lt;!--[</code><code class="php keyword">if</code> <code class="php plain">lt IE 9]&gt;</code></div><div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;script src=</code><code class="php string">"<a href="http://html5shim.googlecode.com/svn/trunk/html5.js">http://html5shim.googlecode.com/svn/trunk/html5.js</a>"</code><code class="php plain">&gt;&lt;/script&gt;</code></div><div class="line number13 index12 alt2"><code class="php plain">&lt;![</code><code class="php keyword">endif</code><code class="php plain">]--&gt;</code></div><div class="line number14 index13 alt1"><code class="php plain">&lt;/head&gt;</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="php plain">&lt;body&gt;</code></div><div class="line number17 index16 alt2"><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"container"</code><code class="php plain">&gt;</code></div><div class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;header </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"row"</code><code class="php plain">&gt;</code></div><div class="line number19 index18 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"span12"</code><code class="php plain">&gt;</code></div><div class="line number20 index19 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"hero-unit"</code><code class="php plain">&gt;</code></div><div class="line number21 index20 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;h1&gt;Mon beau site !&lt;/h1&gt;</code></div><div class="line number22 index21 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/div&gt;</code></div><div class="line number23 index22 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/div&gt;</code></div><div class="line number24 index23 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;/header&gt;</code></div><div class="line number25 index24 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;nav </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"row"</code><code class="php plain">&gt;</code></div><div class="line number26 index25 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"navbar span12"</code><code class="php plain">&gt;</code></div><div class="line number27 index26 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"navbar-inner"</code><code class="php plain">&gt; &lt;a </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"btn btn-navbar"</code> <code class="php plain">data-toggle=</code><code class="php string">"collapse"</code> <code class="php plain">data-target=</code><code class="php string">".nav-collapse"</code><code class="php plain">&gt; &lt;span </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"icon-bar"</code><code class="php plain">&gt;&lt;/span&gt; &lt;span </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"icon-bar"</code><code class="php plain">&gt;&lt;/span&gt; &lt;span </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"icon-bar"</code><code class="php plain">&gt;&lt;/span&gt; &lt;/a&gt;</code></div><div class="line number28 index27 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"nav-collapse collapse"</code><code class="php plain">&gt;</code></div><div class="line number29 index28 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;ul </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"nav"</code><code class="php plain">&gt;</code></div><div class="line number30 index29 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;?php</code></div><div class="line number31 index30 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">for</code><code class="php plain">(</code><code class="php variable">$i</code> <code class="php plain">= 0; </code><code class="php variable">$i</code> <code class="php plain">&lt; </code><code class="php functions">count</code><code class="php plain">(</code><code class="php variable">$data</code><code class="php plain">[</code><code class="php string">'menu'</code><code class="php plain">]); ++</code><code class="php variable">$i</code><code class="php plain">) {</code></div><div class="line number32 index31 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">'&lt;li'</code><code class="php plain">;</code></div><div class="line number33 index32 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">if</code><code class="php plain">(</code><code class="php variable">$i</code> <code class="php plain">== </code><code class="php variable">$data</code><code class="php plain">[</code><code class="php string">'page'</code><code class="php plain">]) </code><code class="php functions">echo</code> <code class="php string">' class="active"'</code><code class="php plain">;</code></div><div class="line number34 index33 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">'&gt;&lt;a href="'</code><code class="php plain">.</code><code class="php variable">$i</code><code class="php plain">.</code><code class="php string">'"&gt;'</code><code class="php plain">.</code><code class="php variable">$data</code><code class="php plain">[</code><code class="php string">'menu'</code><code class="php plain">][</code><code class="php variable">$i</code><code class="php plain">].</code><code class="php string">'&lt;/a&gt;&lt;/li&gt;'</code><code class="php plain">;</code></div><div class="line number35 index34 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">}</code></div><div class="line number36 index35 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">?&gt;</code></div><div class="line number37 index36 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/ul&gt;</code></div><div class="line number38 index37 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/div&gt;</code></div><div class="line number39 index38 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/div&gt;</code></div><div class="line number40 index39 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/div&gt;</code></div><div class="line number41 index40 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;/nav&gt;</code></div><div class="line number42 index41 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;section </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"row"</code><code class="php plain">&gt;</code></div><div class="line number43 index42 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">"span12"</code><code class="php plain">&gt; </code></div><div class="line number44 index43 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;?php </code><code class="php functions">echo</code> <code class="php variable">$contenu</code><code class="php plain">; ?&gt;</code></div><div class="line number45 index44 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">&lt;/div&gt;</code></div><div class="line number46 index45 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;/section&gt;</code></div><div class="line number47 index46 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;hr&gt;</code></div><div class="line number48 index47 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">&lt;footer id=</code><code class="php string">"bas"</code><code class="php plain">&gt; © Mon beau site... &lt;/footer&gt;</code></div><div class="line number49 index48 alt2"><code class="php plain">&lt;/div&gt;</code></div><div class="line number50 index49 alt1"><code class="php plain">&lt;/body&gt;</code></div><div class="line number51 index50 alt2"><code class="php plain">&lt;/html&gt;</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align: justify;">Cette construction suppose qu’on reçoit un tableau <span style="color: #0000ff;">$data</span> qui contient un autre tableau <span style="color: #0000ff;">$menu</span> avec le nom des pages et une variable <span style="color: #0000ff;">$contenu</span> avec le contenu de la page. Enregistrez ce fichier en le nommant <span style="color: #0000ff;">template</span> dans le dossier<span style="color: #0000ff;"> app/views</span>.</p>
+<h2>Les pages</h2>
+<p style="text-align: justify;">Réalisons maintenant les vues qui doivent afficher le contenu des pages. Nous allons faire simple. Voici la vue <span style="color: #0000ff;">app/views/page0</span> :</p>
+<div><div id="highlighter_842168" class="syntaxhighlighter nogutter notranslate html"><div class="toolbar"><span><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">Contenu de l'accueil</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align: justify;">Et voici pour les autres vues (<span style="color: #0000ff;">app/views/page1</span>, <span style="color: #0000ff;">app/views/page2</span>, <span style="color: #0000ff;">app/views/page3</span>) :</p>
+<div><div id="highlighter_890980" class="syntaxhighlighter nogutter notranslate html"><div class="toolbar"><span><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">Contenu de la page 1</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="html plain">Contenu de la page 2</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="html plain">Contenu de la page 3</code></div></div></td></tr></tbody></table></div></div>
+<p>&nbsp;</p>
+<p style="text-align: justify;">Vous devez donc avoir ces vues :</p>
+<h2><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/img26/" rel="attachment wp-att-182"><img class="size-full wp-image-182 aligncenter" alt="img26" src="./template.php_files/img26.png" width="156" height="125"></a>La route</h2>
+<p style="text-align: justify;">Il ne nous reste plus qu’à écrire la route pour faire fonctionner tout ça :</p>
+<div><div id="highlighter_79269" class="syntaxhighlighter nogutter notranslate php"><div class="toolbar"><span><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">Route::get(</code><code class="php string">'/{page?}'</code><code class="php plain">, </code><code class="php keyword">function</code><code class="php plain">(</code><code class="php variable">$page</code> <code class="php plain">= 0)</code></div><div class="line number2 index1 alt1"><code class="php plain">{</code></div><div class="line number3 index2 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php variable">$data</code> <code class="php plain">= </code><code class="php keyword">array</code><code class="php plain">(</code></div><div class="line number4 index3 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'menu'</code> <code class="php plain">=&gt; </code><code class="php keyword">array</code><code class="php plain">(</code><code class="php string">'Accueil'</code><code class="php plain">,</code><code class="php string">'Page1'</code><code class="php plain">,</code><code class="php string">'Page2'</code><code class="php plain">,</code><code class="php string">'Page3'</code><code class="php plain">),</code></div><div class="line number5 index4 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php string">'page'</code> <code class="php plain">=&gt; </code><code class="php variable">$page</code></div><div class="line number6 index5 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php plain">);</code></div><div class="line number7 index6 alt2"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php plain">View::make(</code><code class="php string">'template'</code><code class="php plain">)-&gt;with(</code><code class="php string">'data'</code><code class="php plain">, </code><code class="php variable">$data</code><code class="php plain">)-&gt;nest(</code><code class="php string">'contenu'</code><code class="php plain">, </code><code class="php string">'page'</code><code class="php plain">.</code><code class="php variable">$page</code><code class="php plain">);</code></div><div class="line number8 index7 alt1"><code class="php plain">})-&gt;where(</code><code class="php string">'page'</code><code class="php plain">, </code><code class="php string">'[0-3]'</code><code class="php plain">);</code></div><div class="line number9 index8 alt2">&nbsp;</div><div class="line number10 index9 alt1"><code class="php plain">App::missing(</code><code class="php keyword">function</code><code class="php plain">(</code><code class="php variable">$exception</code><code class="php plain">)</code></div><div class="line number11 index10 alt2"><code class="php plain">{</code></div><div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="php keyword">return</code> <code class="php string">'Oups ! Je ne connais pas cette page !'</code><code class="php plain">;</code></div><div class="line number13 index12 alt2"><code class="php plain">});</code></div></div></td></tr></tbody></table></div></div>
+<p>La syntaxe est simple et claire et ça fonctionne très bien <img title="Smile" alt="Smile" src="./template.php_files/smiley-smile.gif" border="0">.</p>
+<p style="text-align: justify;">On attend le numéro de page (avec 0 comme valeur par défaut), on définit les données à transmettre au template et on contraint le numéro de page avec la clause «&nbsp;where&nbsp;».</p>
+<p style="text-align: justify;">Enfin j’ai prévu un message pour signaler que la page n’existe pas, nous n’avons pas encore vu les messages d’erreurs mais au moins l’application est ainsi complète et fonctionnelle.</p>
+											</div><!-- .entry-content -->
+
+
+					<div class="entry-utility">
+						Ce contenu a été publié dans <a href="http://laravel.sl-creation.org/category/laravel_4/" title="Voir tous les articles dans Laravel 4" rel="category tag">Laravel 4</a>. Vous pouvez le mettre en favoris avec <a href="./template.php_files/template.php.htm" title="Permalien pour Laravel 4 : chapitre 7 : Un exemple de site statique" rel="bookmark">ce permalien</a>.											</div><!-- .entry-utility -->
+				</div><!-- #post-## -->
+
+				<div id="nav-below" class="navigation">
+					<div class="nav-previous"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-les-vues/" rel="prev"><span class="meta-nav">←</span> Laravel 4 : chapitre 6 : Les vues</a></div>
+					<div class="nav-next"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-8-blade/" rel="next">Laravel 4 : chapitre 8 : Blade <span class="meta-nav">→</span></a></div>
+				</div><!-- #nav-below -->
+
+				
+			<div id="comments">
+
+
+			<h3 id="comments-title">2 réponses à <em>Laravel 4 : chapitre 7 : Un exemple de site statique</em></h3>
+
+
+			<ol class="commentlist">
+					<li class="comment byuser comment-author-padbrest even thread-even depth-1" id="li-comment-34">
+		<div id="comment-34">
+			<div class="comment-author vcard">
+				<img alt="" src="./template.php_files/1629ff63c2fa4b34c455835108224ec0" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-1629ff63c2fa4b34c455835108224ec0-0">				<cite class="fn">padbrest</cite> <span class="says">dit&nbsp;:</span>			</div><!-- .comment-author .vcard -->
+			
+			<div class="comment-meta commentmetadata"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#comment-34">
+				25 mars 2013 à 20 h 25 min</a>			</div><!-- .comment-meta .commentmetadata -->
+
+			<div class="comment-body"><p>Bonsoir,<br>
+Petite question sur cette page :<br>
+«&nbsp;Enregistrez ce fichier en le nommant template dans le dossier app/views&nbsp;». Dans ce cas, est-ce que les chemins des CSS ne doivent pas être modifiés ? Plus généralement, les chemins relatifs sont-ils construits à partir de l’emplacement du template ou à partir du fichier (index ? routes ?) qui l’appelle ?<br>
+Merci !</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-login" href="http://laravel.sl-creation.org/wp-login.php?redirect_to=http%3A%2F%2Flaravel.sl-creation.org%2Flaravel-4-chapitre-6-un-exemple-de-site-statique%2F">Connectez-vous pour répondre</a>			</div><!-- .reply -->
+		</div><!-- #comment-##  -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-lara bypostauthor odd alt depth-2" id="li-comment-35">
+		<div id="comment-35">
+			<div class="comment-author vcard">
+				<img alt="" src="./template.php_files/bf4114e6d1c5e38f94510399d16cf5e9" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-bf4114e6d1c5e38f94510399d16cf5e9-0">				<cite class="fn">bestmomo</cite> <span class="says">dit&nbsp;:</span>			</div><!-- .comment-author .vcard -->
+			
+			<div class="comment-meta commentmetadata"><a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#comment-35">
+				26 mars 2013 à 9 h 39 min</a>			</div><!-- .comment-meta .commentmetadata -->
+
+			<div class="comment-body"><p>La référence est l’URL en cours, dans mon exemple ça fonctionne, mais c’est évidemment un cas excessivement simple. Pour des URL composées on peut utiliser l’helper asset(…) ou bien définir la base de référence avec url().</p>
+</div>
+
+			<div class="reply">
+				<a rel="nofollow" class="comment-reply-login" href="http://laravel.sl-creation.org/wp-login.php?redirect_to=http%3A%2F%2Flaravel.sl-creation.org%2Flaravel-4-chapitre-6-un-exemple-de-site-statique%2F">Connectez-vous pour répondre</a>			</div><!-- .reply -->
+		</div><!-- #comment-##  -->
+
+	</li>
+</ul>
+</li>
+			</ol>
+
+
+	
+
+								<div id="respond">
+				<h3 id="reply-title">Laisser un commentaire <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://laravel.sl-creation.org/laravel-4-chapitre-6-un-exemple-de-site-statique/#respond" style="display:none;">Annuler la réponse.</a></small></h3>
+									<p class="must-log-in">Vous devez <a href="http://laravel.sl-creation.org/wp-login.php?redirect_to=http%3A%2F%2Flaravel.sl-creation.org%2Flaravel-4-chapitre-6-un-exemple-de-site-statique%2F">être connecté</a> pour rédiger un commentaire.</p>												</div><!-- #respond -->
+						
+</div><!-- #comments -->
+
+
+			</div><!-- #content -->
+		</div><!-- #container -->
+
+
+		<div id="primary" class="widget-area" role="complementary">
+			<ul class="xoxo">
+
+<li id="search-2" class="widget-container widget_search"><form role="search" method="get" id="searchform" action="http://laravel.sl-creation.org/">
+	<div><label class="screen-reader-text" for="s">Recherche pour:</label>
+	<input type="text" value="" name="s" id="s">
+	<input type="submit" id="searchsubmit" value="Recherche">
+	</div>
+	</form></li>		<li id="recent-posts-2" class="widget-container widget_recent_entries">		<h3 class="widget-title">Articles récents</h3>		<ul>
+					<li>
+				<a href="http://laravel.sl-creation.org/1266/" title="Sortie de Laravel 4">Sortie de Laravel 4</a>
+						</li>
+					<li>
+				<a href="http://laravel.sl-creation.org/laravel-4-chapitre-28-creer-une-commande/" title="Laravel 4 : chapitre 28 : Créer une commande">Laravel 4 : chapitre 28 : Créer une commande</a>
+						</li>
+					<li>
+				<a href="http://laravel.sl-creation.org/laravel-4-chapitre-27-cache-et-configuration/" title="Laravel 4 : chapitre 27 : Cache et configuration">Laravel 4 : chapitre 27 : Cache et configuration</a>
+						</li>
+					<li>
+				<a href="http://laravel.sl-creation.org/laravel-4-chapitre-26-creation-dun-package/" title="Laravel 4 : chapitre 26 : Création d’un package">Laravel 4 : chapitre 26 : Création d’un package</a>
+						</li>
+					<li>
+				<a href="http://laravel.sl-creation.org/laravel-4-chapitre-25-un-blog-les-tests-unitaires/" title="Laravel 4 : chapitre 25 : Un blog : les tests unitaires">Laravel 4 : chapitre 25 : Un blog : les tests unitaires</a>
+						</li>
+				</ul>
+		</li><li id="recent-comments-2" class="widget-container widget_recent_comments"><h3 class="widget-title">Commentaires récents</h3><ul id="recentcomments"><li class="recentcomments">Bionik6 dans <a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-les-vues/#comment-106">Laravel 4 : chapitre 6 : Les vues</a></li><li class="recentcomments">bestmomo dans <a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-les-vues/#comment-105">Laravel 4 : chapitre 6 : Les vues</a></li><li class="recentcomments">Bionik6 dans <a href="http://laravel.sl-creation.org/laravel-4-chapitre-6-les-vues/#comment-104">Laravel 4 : chapitre 6 : Les vues</a></li><li class="recentcomments"><a href="http://www.webstratege.fr/liaison-route-controleur-sous-laravel/" rel="external nofollow" class="url">Liaison Route-Controleur sous Laravel | Blog php APat</a> dans <a href="http://laravel.sl-creation.org/laravel-4-chapitre-9-les-controleurs/#comment-103">Laravel 4 : chapitre 9 : Les contrôleurs</a></li><li class="recentcomments"><a href="http://www.webstratege.fr/liaison-route-controleur-sous-laravel/" rel="external nofollow" class="url">Liaison Route-Controleur sous Laravel | Blog php APat</a> dans <a href="http://laravel.sl-creation.org/laravel-4-chapitre-4-les-routes/#comment-102">Laravel 4 : chapitre 4 : Les routes</a></li></ul></li><li id="archives-2" class="widget-container widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href="http://laravel.sl-creation.org/2013/05/" title="mai 2013">mai 2013</a></li>
+	<li><a href="http://laravel.sl-creation.org/2013/04/" title="avril 2013">avril 2013</a></li>
+	<li><a href="http://laravel.sl-creation.org/2013/03/" title="mars 2013">mars 2013</a></li>
+	<li><a href="http://laravel.sl-creation.org/2013/02/" title="février 2013">février 2013</a></li>
+	<li><a href="http://laravel.sl-creation.org/2013/01/" title="janvier 2013">janvier 2013</a></li>
+	<li><a href="http://laravel.sl-creation.org/2012/12/" title="décembre 2012">décembre 2012</a></li>
+		</ul>
+</li><li id="categories-2" class="widget-container widget_categories"><h3 class="widget-title">Catégories</h3>		<ul>
+	<li class="cat-item cat-item-1"><a href="http://laravel.sl-creation.org/category/actus/" title="Voir tous les articles classés dans Actualités">Actualités</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://laravel.sl-creation.org/category/laravel_4/" title="La prochaine version de Laravel">Laravel 4</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://laravel.sl-creation.org/category/php_objet/" title="Voir tous les articles classés dans PHP Objet">PHP Objet</a>
+</li>
+		</ul>
+</li><li id="meta-2" class="widget-container widget_meta"><h3 class="widget-title">Méta</h3>			<ul>
+			<li><a href="http://laravel.sl-creation.org/wp-login.php?action=register">Inscription</a></li>			<li><a href="http://laravel.sl-creation.org/wp-login.php">Connexion</a></li>
+			<li><a href="http://laravel.sl-creation.org/feed/" title="Suivez ce site par syndication RSS 2.0">Flux <abbr title="Really Simple Syndication">RSS</abbr> des articles</a></li>
+			<li><a href="http://laravel.sl-creation.org/comments/feed/" title="Les derniers commentaires pour tous les articles, au format RSS"><abbr title="Really Simple Syndication">RSS</abbr> des commentaires</a></li>
+			<li><a href="http://www.wordpress-fr.net/" title="Propulsé par WordPress, plate-forme de publication personnelle sémantique de pointe.">Site de WordPress-FR</a></li>
+						</ul>
+</li>			</ul>
+		</div><!-- #primary .widget-area -->
+
+	</div><!-- #main -->
+
+	<div id="footer" role="contentinfo">
+		<div id="colophon">
+
+
+
+			<div id="site-info">
+				<a href="http://laravel.sl-creation.org/" title="Laravel" rel="home">
+					Laravel				</a>
+			</div><!-- #site-info -->
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Plate-forme de publication personnelle à la pointe de la sémantique">Fièrement propulsé par WordPress</a>
+			</div><!-- #site-generator -->
+
+		</div><!-- #colophon -->
+	</div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+<!-- WP SyntaxHighlighter Ver.1.7.3 Begin -->
+<script type="text/javascript" src="./template.php_files/shCore.js"></script>
+<script type="text/javascript" src="./template.php_files/shAutoloader.js"></script>
+<script type="text/javascript" src="./template.php_files/shBrushXml.js"></script>
+<script type="text/javascript">//<![CDATA[
+	SyntaxHighlighter.autoloader(
+	"css	http://laravel.sl-creation.org/wp-content/plugins/wp-syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js?ver=3.0"
+	,"js jscript javascript	http://laravel.sl-creation.org/wp-content/plugins/wp-syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js?ver=3.0"
+	,"php	http://laravel.sl-creation.org/wp-content/plugins/wp-syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0"
+	,"plain text	http://laravel.sl-creation.org/wp-content/plugins/wp-syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js?ver=3.0"
+	,"sql	http://laravel.sl-creation.org/wp-content/plugins/wp-syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js?ver=3.0"
+	,"xml xhtml xslt html	http://laravel.sl-creation.org/wp-content/plugins/wp-syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js?ver=3.0"
+	);
+	SyntaxHighlighter.defaults['auto-links'] = true;
+	SyntaxHighlighter.defaults['quick-code'] = true;
+	SyntaxHighlighter.defaults['title'] = '';
+	SyntaxHighlighter.defaults['class-name'] = 'notranslate';
+	SyntaxHighlighter.defaults['collapse'] = false;
+	SyntaxHighlighter.defaults['first-line'] = 1;
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['smart-tabs'] = true;
+	SyntaxHighlighter.defaults['tab-size'] = 4;
+	SyntaxHighlighter.defaults['toolbar'] = true;
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = "Can't find brush for: ";
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = "Brush wasn't configured for html-script option: ";
+	SyntaxHighlighter.all();
+	
+//]]></script>
+<!-- WP SyntaxHighlighter Ver.1.7.3 End -->
+	<div style="display:none">
+	<div class="grofile-hash-map-1629ff63c2fa4b34c455835108224ec0">
+	</div>
+	<div class="grofile-hash-map-bf4114e6d1c5e38f94510399d16cf5e9">
+	</div>
+	</div>
+<script type="text/javascript" src="./template.php_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./template.php_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./template.php_files/wpgroho.js"></script>
+
+	<script src="./template.php_files/e-201329.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.3.1',blog:'45464338',post:'177',tz:'1'});
+	var load_cmc = function(){linktracker_init(45464338,177,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script><img id="wpstats" src="./template.php_files/g.gif" alt="">
+
+</body></html>
