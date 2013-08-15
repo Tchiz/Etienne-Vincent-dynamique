@@ -16,7 +16,8 @@ View::composer( 'template', function( $view, $isWorkingItem = '' )
 {
 	$firstMenuList = array( 
 		array( 'label' => 'Accueil', 'link' => '' ),
-		array( 'label' => 'Biographie', 'link' => 'biographie')
+		array( 'label' => 'Biographie', 'link' => 'biographie'),
+		array( 'label' => 'Agenda', 'link' => 'agenda')
 	);
 	
 	$data = array(
@@ -41,4 +42,9 @@ Route::get( '../', function()
 Route::get( 'biographie', function()
 {
 	return View::make( 'template' )->nest( 'content', 'biographie' );
+});
+
+Route::get( 'agenda', function()
+{
+	return View::make( 'template' )->nest( 'content', 'schedule' );
 });
