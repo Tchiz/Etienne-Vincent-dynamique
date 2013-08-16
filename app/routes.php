@@ -11,12 +11,30 @@
 |
 */
 
+View::composer( 'template_vip', function( $view, $isWorkingItem = '' )
+{
+	$firstMenuList = array( 
+		array( 'label' => 'Accueil', 'link' => '' ),
+		array( 'label' => 'Biographie', 'link' => 'biographie'),
+		array( 'label' => 'Groupes', 'link' => 'vip'),
+		array( 'label' => 'Agenda', 'link' => 'agenda')
+	);
+	
+	$data = array(
+		'firstMenuList' => $firstMenuList,
+		'isWorking'	=> $isWorkingItem
+	);
+	
+	$view->nest( 'firstMenu', 'menu_principal', array( 'data' => $data ) );
+});
+
 /* Gestion du menu */
 View::composer( 'template', function( $view, $isWorkingItem = '' )
 {
 	$firstMenuList = array( 
 		array( 'label' => 'Accueil', 'link' => '' ),
 		array( 'label' => 'Biographie', 'link' => 'biographie'),
+		array( 'label' => 'Groupes', 'link' => 'vip'),
 		array( 'label' => 'Agenda', 'link' => 'agenda')
 	);
 	
@@ -47,4 +65,9 @@ Route::get( 'biographie', function()
 Route::get( 'agenda', function()
 {
 	return View::make( 'template' )->nest( 'content', 'schedule' );
+});
+
+Route::get( 'vip', function()
+{
+	return View::make( 'template_vip' )->nest( 'content', 'vip_presentation' );
 });

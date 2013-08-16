@@ -1,0 +1,75 @@
+div.bandeau {
+	width: 0px;
+}
+
+div.vip{
+	width: 640px;
+	margin: 0px;
+	margin-left: 120px;
+}
+
+div.vip audio{
+	display: block;
+	width: 400px;
+	margin: auto;
+}
+
+div.vip p.introduction{
+	margin-left: 60px;
+}
+
+figure.presentation{
+	width: 640px;
+	margin: 0px;
+}
+
+figure.presentation img{
+	display: block;
+	width: 640px;
+	height: 360px;
+	margin: auto;
+}
+
+figure p {
+	padding-left : 15px;
+	padding-right : 15px;
+	text-indent: 30px;
+}
+
+figure.musicien figcaption{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 1.2em;
+	display: block;
+	text-align: center;
+}
+
+figure.musicien{
+	border: 2px solid #FFA07A;
+	background: #111111;
+	padding: 5px;
+	width: 500px;
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+figure.musicien *{
+	background-color: inherit;
+}
+
+figure.musicien p{
+	padding: 15px;
+	padding-bottom: 0px;
+	color: #bbbbbb;
+}
+
+figure.musicien img{
+	display: block;
+	width: 270px;
+	height: 270px;
+	margin: auto;
+}
+
+div.vip article {
+	width: 100%;
+}
