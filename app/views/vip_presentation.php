@@ -23,10 +23,10 @@
 			(Peter Bernstein, John Abercrombie...) se fondent dans un univers tr&egrave;s personnel.
 		</p>
 	</figure>
-	<!--<audio controls>-->
-		<!--<source src="./media/musique/sleep_away.ogg" type="audio/ogg">-->
-		<!--<source src="./media/musique/sleep_away.mp3" type="audio/mpeg"> -->
+	<audio controls>
+		<source src="./media/musique/theLake.ogg" type="audio/ogg">
+		<source src="./media/musique/theLake.mp3" type="audio/mpeg">
 		<!-- voir avec JQuery pour plus d'option -->
 		<!-- Your browser does not support the audio element. -->
-	<!--</audio>-->
+	</audio>
 </div>
