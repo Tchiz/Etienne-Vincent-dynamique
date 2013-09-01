@@ -1,14 +1,7 @@
 <nav class="secondaire">
 	<ul>
 		<li class="actif">
-			Etienne Vincent Quartet	
-			<span class="sous-secondaire">
-				<a class="actif" href="">Pr&eacute;sentation</a>
-				<a href="./groupes/etienne-vincent-quartet/musiciens.html">Musiciens</a>
-				<a href="./groupes/etienne-vincent-quartet/audio-video.html">Audio/Video</a>
-				<a href="">Agenda</a>
-				<a href="">Pro</a>
-			</span>
+			Etienne Vincent Quartet
 		</li>
 		<li>Swolkin'</li>
 		<li>Melophonic Quartet</li>
