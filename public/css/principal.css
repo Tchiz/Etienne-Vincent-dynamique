@@ -250,6 +250,9 @@ strong{
 }
 
 div.agenda article{
+	margin-bottom: 15px;
+	padding-top: 5px;
+	border-top: #333333 thin solid;
 	width: 500px;
 	text-align: center;
 	background: #111111;
