@@ -252,13 +252,17 @@ strong{
 div.agenda article{
 	margin-bottom: 15px;
 	padding-top: 5px;
-	border-top: #333333 thin solid;
+	/* border-top: #333333 thin solid; */
 	width: 500px;
 	text-align: center;
 	background: #111111;
 }
 
-div.agenda article header, div.agenda article footer{
+div.agenda article header
+{
+	background: #333333;
+}
+div.agenda article footer{
 	color: #FFA07A;
 }
 
