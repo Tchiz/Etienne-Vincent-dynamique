@@ -11,13 +11,34 @@
 |
 */
 
+// REDONDANDE avec template ?!
+View::composer( 'template_workshop', function( $view, $isWorkingItem = '' )
+{
+	$firstMenuList = array( 
+		array( 'label' => 'Accueil', 'link' => '' ),
+		array( 'label' => 'Biographie', 'link' => 'biographie'),
+		array( 'label' => 'Groupes', 'link' => 'vip'),
+		array( 'label' => 'Agenda', 'link' => 'agenda'),
+		array( 'label' => 'Ateliers Jazz', 'link' => 'ateliers')
+	);
+	
+	$data = array(
+		'firstMenuList' => $firstMenuList,
+		'isWorking'	=> $isWorkingItem
+	);
+	
+	$view->nest( 'firstMenu', 'menu_principal', array( 'data' => $data ) );
+});
+
+// REDONDANDE avec template ?!
 View::composer( 'template_vip', function( $view, $isWorkingItem = '' )
 {
 	$firstMenuList = array( 
 		array( 'label' => 'Accueil', 'link' => '' ),
 		array( 'label' => 'Biographie', 'link' => 'biographie'),
 		array( 'label' => 'Groupes', 'link' => 'vip'),
-		array( 'label' => 'Agenda', 'link' => 'agenda')
+		array( 'label' => 'Agenda', 'link' => 'agenda'),
+		array( 'label' => 'Ateliers Jazz', 'link' => 'ateliers')
 	);
 	
 	$data = array(
@@ -35,7 +56,8 @@ View::composer( 'template', function( $view, $isWorkingItem = '' )
 		array( 'label' => 'Accueil', 'link' => '' ),
 		array( 'label' => 'Biographie', 'link' => 'biographie'),
 		array( 'label' => 'Groupes', 'link' => 'vip'),
-		array( 'label' => 'Agenda', 'link' => 'agenda')
+		array( 'label' => 'Agenda', 'link' => 'agenda'),
+		array( 'label' => 'Ateliers Jazz', 'link' => 'ateliers')
 	);
 	
 	$data = array(
@@ -70,4 +92,9 @@ Route::get( 'agenda', function()
 Route::get( 'vip', function()
 {
 	return View::make( 'template_vip' )->nest( 'content', 'vip_presentation' );
+});
+
+Route::get( 'ateliers', function()
+{
+	return View::make( 'template_workshop' )->nest( 'content', 'workshop' );
 });
