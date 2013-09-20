@@ -73,3 +73,12 @@ figure.musicien img{
 div.vip article {
 	width: 100%;
 }
+
+figure.audio figcaption{
+	margin: 15px;
+}
+
+figure.audio{
+	border: thin solid #444444;
+	padding-bottom: 15px;
+}
