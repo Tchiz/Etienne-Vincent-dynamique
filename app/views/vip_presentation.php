@@ -25,16 +25,16 @@
 	</figure>
 	
 	<figure class="audio">
-		<figcaption>The Lake - In The Wind - Medley de l'EP Courants</figcaption>
+		<figcaption>In The Wind - The Lake - Extraits de l'EP Courants</figcaption>
 		<audio controls>
-			<source src="./media/musique/theLake.ogg" type="audio/ogg">
-			<source src="./media/musique/theLake.mp3" type="audio/mpeg">
+			<source src="./media/musique/inTheWind.ogg" type="audio/ogg">
+			<source src="./media/musique/inTheWind.mp3" type="audio/mpeg">
 			<!-- voir avec JQuery pour plus d'option -->
 			<!-- Your browser does not support the audio element. -->
 		</audio>
 		<audio controls>
-			<source src="./media/musique/inTheWind.ogg" type="audio/ogg">
-			<source src="./media/musique/inTheWind.mp3" type="audio/mpeg">
+			<source src="./media/musique/theLake.ogg" type="audio/ogg">
+			<source src="./media/musique/theLake.mp3" type="audio/mpeg">
 			<!-- voir avec JQuery pour plus d'option -->
 			<!-- Your browser does not support the audio element. -->
 		</audio>

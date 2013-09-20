@@ -230,6 +230,7 @@ div.biographie{
 	width: 450px;
 	padding: 35px;
 	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 div.biographie{
@@ -252,7 +253,6 @@ strong{
 div.agenda article{
 	margin-bottom: 15px;
 	padding-top: 5px;
-	/* border-top: #333333 thin solid; */
 	width: 500px;
 	text-align: center;
 	background: #111111;

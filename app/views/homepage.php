@@ -1,11 +1,11 @@
 <div class="homepage">
 	<article>
-		<header>Concert au Sunset Sunside</header>
+		<header>Trophées du sunside</header>
 		<img 
 			src="./media/images/logo_sunsetsunside.png" 
 			alt="Sunset Sunside - Club de jazz parisien" 
 			title="Sunset Sunside - Club de jazz parisien" />
-		Etienne Vincent quartet sélectionné aux tremplins du Sunside,le 5 septembre 2013.
+		2eme prix de soliste aux trophées du Sunside avec Etienne Vincent Quartet
 		<footer>
 			<a href="http://www.sunset-sunside.com/2013/9/artiste/1104/1749/">
 				En savoir plus...
@@ -13,12 +13,12 @@
 		</footer>
 	</article>
 	<article>
-		<header>Nouvel EP d'Etienne Vincent Quartet</header>
+		<header>Etienne Vincent Quartet</header>
 		<img 
 			src="./media/images/ep_courants.png" 
 			alt="Sunset Sunside - Club de jazz parisien" 
 			title="Sunset Sunside - Club de jazz parisien" />
-		Nouvel EP <em>Courants</em> sortie en Avril 2013, disponible sur toutes les plateformes de t&eacute;l&eacute;chargements. 
+		Nouvel EP, <em>Courants</em> sorti en Mai 2013, disponible sur toutes les plateformes de t&eacute;l&eacute;chargements. 
 		<footer><a href="">En savoir plus...</a></footer>
 	</article>
 </div>
