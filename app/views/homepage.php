@@ -1,6 +1,6 @@
 <div class="homepage">
 	<article>
-		<header>Trophées du sunside</header>
+		<header>Trophees du sunside</header>
 		<img 
 			src="./media/images/logo_sunsetsunside.png" 
 			alt="Sunset Sunside - Club de jazz parisien" 
@@ -19,6 +19,6 @@
 			alt="Sunset Sunside - Club de jazz parisien" 
 			title="Sunset Sunside - Club de jazz parisien" />
 		Nouvel EP, <em>Courants</em> sorti en Mai 2013, disponible sur toutes les plateformes de t&eacute;l&eacute;chargements. 
-		<footer><a href="">En savoir plus...</a></footer>
+		<footer><a href="https://itunes.apple.com/us/album/courants/id633100251">En savoir plus...</a></footer>
 	</article>
 </div>

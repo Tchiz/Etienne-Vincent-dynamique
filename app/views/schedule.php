@@ -1,19 +1,17 @@
 <div class="agenda">
 	<article>
-		<header>Le 5 septembre 2013</header>
-		Concert au Sunset Sunside
+		<header>Le 18 octobre 2013</header>
+		Mellophonic Quartet
 		<footer>
-			<a href="http://www.sunset-sunside.com/2013/9/artiste/1104/1749/">
-				En savoir plus...
-			</a>
+			au Train Th&eacute;&acirc;tre &agrave; Portes les Valence (26) &agrave; 19 h 30
 		</footer>
 	</article>
 	<br/>
 	<article>
-		<header>Le 20 septembre 2013</header>
-		Concert à O'Marchéb'Arts <br/>avec Basile Mouton (cb) et Thomas Delor (dms)
+		<header>Le 28 novembre 2013</header>
+		Avec Fred Dupont (orgue) et Simon Bernier (batterie)
 		<footer>
-			à partir de 20 h au 88 avenue Henri Ginoux, 92120 Montrouge
+			au Rouge Gorge &agrave; Montrouge (1 rue Camille Pelletan) à partir de 19h
 		</footer>
 	</article>
 	<br/>
@@ -22,6 +20,30 @@
 		Concert Swolkin'
 		<footer>
 			à la médiathèque de Montrouge à 15 h
+		</footer>
+	</article>
+	<br/>
+	<article>
+		<header>Le 7 fr&eacute;vrier 2014</header>
+		Mellophonic Quartet
+		<footer>
+			au Ch&acirc;teau de Saint Victor sur Loire (42) &agrave; 20 h 30
+		</footer>
+	</article>
+	<br/>
+	<article>
+		<header>Le 8 fr&eacute;vrier 2014</header>
+		Mellophonic Quartet
+		<footer>
+			à la médiathèque de Saint Sigolène (43) &agrave; 15 h
+		</footer>
+	</article>
+	<br/>
+	<article>
+		<header>Le 9 fr&eacute;vrier 2014</header>
+		Mellophonic Quartet
+		<footer>
+			Soirée privée (26)
 		</footer>
 	</article>
 	<br/>

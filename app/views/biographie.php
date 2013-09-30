@@ -25,6 +25,6 @@
 	</p>
 	<p>
 		D&egrave;s lors le projet se poursuit, principalement sur sc&egrave;ne :<br/>
-		concerts au Train Th&eacute;&acirc;tre (26), au Sunset et il obtient le <strong>2&egrave;me pric de Soliste</strong> lors des <strong><em>Troph&eacute;es du Sunside</em></strong> en septembre 2013.
+		concerts au Train Th&eacute;&acirc;tre (26), au Sunset et il obtient le <strong>2&egrave;me prix de Soliste</strong> lors des <strong><em>Troph&eacute;es du Sunside</em></strong> en septembre 2013.
 	</p>
 </div>

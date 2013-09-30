@@ -35,8 +35,8 @@
 	<p>
 		<em>Studios</em>
 		Les répétitions ont lieux aux studios music live de Montrouge (92), studios professionnels équipés de matériel haut de gamme
-		(Fender twin, Mesa Boogie pour les guitaristes, amplis basse et batteries de qualité…).
-		http://www.musiclive.fr/index.php
+		(Fender twin, Mesa Boogie pour les guitaristes, amplis basse et batteries de qualité…).<br/>
+		<a href="http://www.musiclive.fr/">www.musiclive.fr</a></br>
 		Les studios sont à environ 7 minutes à pieds de la station de métro Chatillon-Montrouge (ligne 13), et de la station de métro Mairie de Montrouge (ligne 4).
 		Parking sous terrain gratuit, réservé aux utilisateurs des studios.
 	</p>
