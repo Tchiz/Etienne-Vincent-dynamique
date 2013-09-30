@@ -11,47 +11,11 @@
 |
 */
 
-// REDONDANDE avec template ?!
-View::composer( 'template_workshop', function( $view, $isWorkingItem = '' )
-{
-	$firstMenuList = array( 
-		array( 'label' => 'Accueil', 'link' => '' ),
-		array( 'label' => 'Biographie', 'link' => 'biographie'),
-		array( 'label' => 'Groupes', 'link' => 'vip'),
-		array( 'label' => 'Agenda', 'link' => 'agenda'),
-		array( 'label' => 'Ateliers Jazz', 'link' => 'ateliers')
-	);
-	
-	$data = array(
-		'firstMenuList' => $firstMenuList,
-		'isWorking'	=> $isWorkingItem
-	);
-	
-	$view->nest( 'firstMenu', 'menu_principal', array( 'data' => $data ) );
-});
+/* fonctions */
 
-// REDONDANDE avec template ?!
-View::composer( 'template_vip', function( $view, $isWorkingItem = '' )
-{
-	$firstMenuList = array( 
-		array( 'label' => 'Accueil', 'link' => '' ),
-		array( 'label' => 'Biographie', 'link' => 'biographie'),
-		array( 'label' => 'Groupes', 'link' => 'vip'),
-		array( 'label' => 'Agenda', 'link' => 'agenda'),
-		array( 'label' => 'Ateliers Jazz', 'link' => 'ateliers')
-	);
-	
-	$data = array(
-		'firstMenuList' => $firstMenuList,
-		'isWorking'	=> $isWorkingItem
-	);
-	
-	$view->nest( 'firstMenu', 'menu_principal', array( 'data' => $data ) );
-});
+function template( $subTemplate, $title, $withBandeau ){
 
-/* Gestion du menu */
-View::composer( 'template', function( $view, $isWorkingItem = '' )
-{
+	/* Gestion du menu */
 	$firstMenuList = array( 
 		array( 'label' => 'Accueil', 'link' => '' ),
 		array( 'label' => 'Biographie', 'link' => 'biographie'),
@@ -60,41 +24,48 @@ View::composer( 'template', function( $view, $isWorkingItem = '' )
 		array( 'label' => 'Ateliers Jazz', 'link' => 'ateliers')
 	);
 	
-	$data = array(
-		'firstMenuList' => $firstMenuList,
-		'isWorking'	=> $isWorkingItem
-	);
-	
-	$view->nest( 'firstMenu', 'menu_principal', array( 'data' => $data ) );
-});
+	return View::make( $subTemplate, array( 
+		'firstMenuList' 	=> $firstMenuList,
+		'title'			=> $title,
+		'withBandeau' 	=> $withBandeau
+		));
+}
+
+function templateWithBandeau( $subTemplate ){
+	return template( $subTemplate, 'guitariste', true );
+}
+
+function templateWithoutBandeau( $subTemplate, $title ){
+	return template( $subTemplate, $title, false );
+}
 
 /* Gestion page par défaut */
 Route::get( '/', function()
 {
-	return View::make( 'template' )->nest( 'content', 'homepage' );
+	return templateWithBandeau( 'homepage' );
 });
 
 Route::get( '../', function()
 {
-	return View::make( 'template' )->nest( 'content', 'homepage' );
+	return templateWithBandeau( 'homepage' );
 });
 
 Route::get( 'biographie', function()
 {
-	return View::make( 'template' )->nest( 'content', 'biographie' );
+	return templateWithBandeau( 'biographie' );
 });
 
 Route::get( 'agenda', function()
 {
-	return View::make( 'template' )->nest( 'content', 'schedule' );
+	return templateWithBandeau( 'schedule' );
 });
 
 Route::get( 'vip', function()
 {
-	return View::make( 'template_vip' )->nest( 'content', 'vip_presentation' );
+	return templateWithoutBandeau( 'vip_presentation', 'quartet' );
 });
 
 Route::get( 'ateliers', function()
 {
-	return View::make( 'template_workshop' )->nest( 'content', 'workshop' );
+	return templateWithoutBandeau( 'workshop', 'workshop' );
 });

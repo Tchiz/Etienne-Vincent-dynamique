@@ -1,3 +1,8 @@
+@extends ( 'template' )
+
+@include ( 'menu_principal' )
+
+@section( 'content' )
 <div class="homepage">
 	<article>
 		<header>Trophees du sunside</header>
@@ -22,3 +27,4 @@
 		<footer><a href="https://itunes.apple.com/us/album/courants/id633100251">En savoir plus...</a></footer>
 	</article>
 </div>
+@stop

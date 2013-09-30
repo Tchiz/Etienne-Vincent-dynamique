@@ -1,3 +1,8 @@
+@extends ( 'template' )
+
+@include ( 'menu_principal' )
+
+@section( 'content' )
 <div class="atelier">
 	<h2>Jazz Workshop Montrouge</h2>
 	<h3>Atelier de jazz</h3>
@@ -58,3 +63,4 @@
 		06.81.12.88.01
 	</p>
 </div>
+@stop

@@ -1,3 +1,8 @@
+@extends ( 'template' )
+
+@include ( 'menu_principal' )
+
+@section( 'content' )
 <div class="biographie">
 	<p>
 		<strong>Etienne Vincent</strong> commence la guitare rock &agrave; treize ans et d&eacute;couvre ensuite le jazz gr&acirc;ce au guitariste Gilles Trial. Il suit son enseignement &agrave; <strong>Jazz Action Valence</strong> jusqu' en 1999, puis &eacute;tudie &agrave; l'<strong>ENM de Villeurbanne</strong> et au <strong>CNR de Lyon</strong>. Il y obtient son <strong>DEM jazz</strong> en 2004.
@@ -28,3 +33,4 @@
 		concerts au Train Th&eacute;&acirc;tre (26), au Sunset et il obtient le <strong>2&egrave;me prix de Soliste</strong> lors des <strong><em>Troph&eacute;es du Sunside</em></strong> en septembre 2013.
 	</p>
 </div>
+@stop

@@ -1,3 +1,8 @@
+@extends ( 'template' )
+
+@include ( 'menu_principal' )
+
+@section( 'content' )
 <nav class="secondaire">
 	<ul>
 		<li class="actif">
@@ -46,3 +51,4 @@
 		</audio>
 	</figure>
 </div>
+@stop

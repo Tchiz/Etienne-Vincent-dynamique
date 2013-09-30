@@ -5,7 +5,7 @@
 	</h1>
 	<nav class="principal">
 		<ul>
-			@foreach ( $data['firstMenuList'] as $item )
+			@foreach ( $firstMenuList as $item )
 				@if ( $item['link'] == Request::segment(1) )
 				<li class="isWorking">
 				@else

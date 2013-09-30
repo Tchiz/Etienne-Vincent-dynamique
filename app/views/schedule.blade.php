@@ -1,3 +1,8 @@
+@extends ( 'template' )
+
+@include ( 'menu_principal' )
+
+@section( 'content' )
 <div class="agenda">
 	<article>
 		<header>Le 18 octobre 2013</header>
@@ -48,3 +53,4 @@
 	</article>
 	<br/>
 </div>
+@stop
