@@ -1,7 +1,7 @@
 <div class="menu">
 	<h1>
 		Etienne Vincent
-		Guitariste
+		{{ $title }}
 	</h1>
 	<nav class="principal">
 		<ul>
@@ -11,7 +11,7 @@
 				@else
 				<li>
 				@endif
-					<a href="./{{ $item['link'] }}">{{ $item['label'] }}</a>
+					<a href="{{ URL::to($item['link']) }}">{{ $item['label'] }}</a>
 				</li>
 			@endforeach
 		</ul>

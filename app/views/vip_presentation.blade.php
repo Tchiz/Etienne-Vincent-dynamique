@@ -1,24 +1,14 @@
-@extends ( 'template' )
+@extends ( 'vip_template' )
 
 @include ( 'menu_principal' )
 
 @section( 'content' )
-<nav class="secondaire">
-	<ul>
-		<li class="actif">
-			Etienne Vincent Quartet
-		</li>
-		<li>Swolkin'</li>
-		<li>Melophonic Quartet</li>
-		<li>Siam trio</li>
-	</ul>
-</nav>
 <div class="vip">
 	<h2>Etienne Vincent Quartet</h2>
 	<h3></h3>
 	<figure class="presentation">
 		<img 
-			src="./media/images/presentation_etiennevincentquartet.jpg" 
+			src="{{ URL::to( 'media/images/presentation_etiennevincentquartet.jpg' ) }}" 
 			alt="Etienne Vincent - Guitariste" 
 			title="Etienne Vincent - Guitariste" />
 		<p>
@@ -32,20 +22,20 @@
 	<figure class="audio">
 		<figcaption>In The Wind - The Lake - Extraits de l'EP Courants</figcaption>
 		<audio controls>
-			<source src="./media/musique/inTheWind.ogg" type="audio/ogg">
-			<source src="./media/musique/inTheWind.mp3" type="audio/mpeg">
+			<source src="{{ URL::to( 'media/musique/inTheWind.ogg' ) }}" type="audio/ogg">
+			<source src="{{ URL::to( 'media/musique/inTheWind.mp3' ) }}" type="audio/mpeg">
 			<!-- voir avec JQuery pour plus d'option -->
 			<!-- Your browser does not support the audio element. -->
 		</audio>
 		<audio controls>
-			<source src="./media/musique/theLake.ogg" type="audio/ogg">
-			<source src="./media/musique/theLake.mp3" type="audio/mpeg">
+			<source src="{{ URL::to( 'media/musique/theLake.ogg' ) }}" type="audio/ogg">
+			<source src="{{ URL::to( 'media/musique/theLake.mp3' ) }}" type="audio/mpeg">
 			<!-- voir avec JQuery pour plus d'option -->
 			<!-- Your browser does not support the audio element. -->
 		</audio>
 		<audio controls>
-			<source src="./media/musique/courants_extraits.ogg" type="audio/ogg">
-			<source src="./media/musique/courants_extraits.mp3" type="audio/mpeg">
+			<source src="{{ URL::to( 'media/musique/courants_extraits.ogg' ) }}" type="audio/ogg">
+			<source src="{{ URL::to( 'media/musique/courants_extraits.mp3' ) }}" type="audio/mpeg">
 			<!-- voir avec JQuery pour plus d'option -->
 			<!-- Your browser does not support the audio element. -->
 		</audio>
