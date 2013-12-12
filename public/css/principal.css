@@ -27,12 +27,34 @@
 }
 
 @font-face {
-    font-family: 'QuicksandLight';
-    src: url('./police/Quicksand_Light-webfont.eot');
-    src: url('./police/Quicksand_Light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./police/Quicksand_Light-webfont.woff') format('woff'),
-         url('./police/Quicksand_Light-webfont.ttf') format('truetype'),
-         url('./police/Quicksand_Light-webfont.svg#QuicksandLight') format('svg');
+    font-family: 'quicksanditalic';
+    src: url('./police/quicksand-italic-webfont.eot');
+    src: url('./police/quicksand-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./police/quicksand-italic-webfont.woff') format('woff'),
+         url('./police/quicksand-italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'quicksandbold';
+    src: url('./police/quicksand-bold-webfont.eot');
+    src: url('./police/quicksand-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./police/quicksand-bold-webfont.woff') format('woff'),
+         url('./police/quicksand-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'quicksandregular';
+    src: url('./police/quicksand-regular-webfont.eot');
+    src: url('./police/quicksand-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./police/quicksand-regular-webfont.woff') format('woff'),
+         url('./police/quicksand-regular-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -42,16 +64,30 @@
 
 *{
 	background-color: #222222;
-	color: white;
+	color: #dddddd;
 	font-size: 1.0em;
-	font-family: QuicksandLight, Arial,serif;
-	font-family: QuicksandLight, Arial,serif;
+	font-family: quicksandregular, Arial, serif;
+}
+
+em{
+	font-style : normal;
+	font-weight : normal;
+	font-family: quicksanditalic;
+}
+
+strong{
+	font-family: quicksandbold;
+}
+
+strong, em{
+	color: #ffffff;
 }
 
 a{
 	background-color: inherit;
 	text-decoration: none;
 	color: inherit;
+	cursor: pointer;
 }
 
 body{
@@ -69,11 +105,19 @@ div.bandeau{
 	height: 600px;
 }
 
+div.homepage,
+div.biographie, 
+div.contact, 
+div.agenda{
+	width: 450px;
+	padding: 35px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	background: #111111;
+}
+
 div.homepage{
-	width: 400px;
-	float: left;
-	padding: 15px;
-	padding-top: 35px;
+	padding-top: 35px; 
 }
 
 div.homepage *{
@@ -84,14 +128,36 @@ div.homepage a{
 	font-size: 0.9em;
 }
 
-
-img{
-	display: block;
-}
-
 div.homepage article img{
 	margin: auto;
 	margin-bottom: 15px;
+}
+
+div.homepage article{
+	width: 50%;
+	margin-left: 100px;
+	margin-bottom: 35px;
+	padding: 10px;
+	border: 2px solid #FFA07A;
+}
+
+div.homepage article header, h2{
+	/*Attention : AmaticSCRegular ne gère pas les accents !*/
+	font-family: AmaticSCRegular, serif;
+	font-size: 1.6em;
+	color: #ffffff;
+}
+
+div.homepage article header{
+	
+	margin-top: -35px;
+	background: none;
+	padding-left: 5px;
+	height: 50px;
+}
+
+img{
+	display: block;
 }
 
 h1{
@@ -126,27 +192,6 @@ div.menu h1{
 
 li{
 	padding: 10px;
-}
-
-div.homepage article{
-	margin-bottom: 35px;
-	width: 250px;
-	padding: 10px;
-	border: 2px solid #FFA07A;
-}
-
-div.homepage article header, h2{
-	/*Attention : AmaticSCRegular ne gère pas les accents !*/
-	font-family: AmaticSCRegular, serif;
-	font-size: 1.6em;
-}
-
-div.homepage article header{
-	
-	margin-top: -35px;
-	background: none;
-	padding-left: 5px;
-	height: 50px;
 }
 
 ul{
@@ -218,7 +263,7 @@ div.homepage article:hover{
 	background-color: #222222;
 }
 
-audio, div.homepage article{
+audio{
 	margin-left: 50px;
 }
 
@@ -227,47 +272,30 @@ h1, div, article, ul, nav.principal ul li{
 	float: left;
 }
 
-div.biographie{
-	width: 450px;
-	padding: 35px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-}
-
-div.biographie{
-	background: #111111;
-}
-
-div.biographie *{
+div.biographie *, div.contact *{
 	background: inherit;
 }
 
-div.biographie p{
-	color: #aaaaaa;
-}
-
-strong{
-	color: #dddddd;
-	font-weight: bold;
-}
-
-div.agenda{
-	width: 500px;
+div.contact{
+	text-align: center;
 }
 
 div.agenda article{
+	border: 2px solid #FFA07A;
 	margin-bottom: 15px;
-	padding-top: 5px;
-	width: 500px;
+	margin-top: 15px;
+	width: 100%;
 	text-align: center;
 	background: #111111;
 }
 
 div.agenda article header
 {
-	background: #333333;
+	color: #ffffff;
+	margin-bottom: 15px;
 }
 div.agenda article footer{
+	margin-top: 15px;
 	color: #FFA07A;
 }
 

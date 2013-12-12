@@ -18,7 +18,8 @@ function getPrincipalMenuList(){
 		array( 'label' => 'Accueil', 'link' => '' ),
 		array( 'label' => 'Biographie', 'link' => 'biographie'),
 		array( 'label' => 'Groupes', 'link' => 'groupes'),
-		array( 'label' => 'Agenda', 'link' => 'agenda')
+		array( 'label' => 'Agenda', 'link' => 'agenda'),
+		array( 'label' => 'Contact', 'link' => 'contact')
 		/* array( 'label' => 'Ateliers Jazz', 'link' => 'ateliers') */
 		// onglet ateliers jazz temporairement enlevé le 07/11/2013
 	);
@@ -102,6 +103,11 @@ Route::get( 'biographie', function()
 Route::get( 'agenda', function()
 {
 	return templateWithBandeau( 'schedule' );
+});
+
+Route::get( 'contact', function()
+{
+	return templateWithBandeau( 'contact' );
 });
 
 /*                Pages EtienneVincentQuartet                              */
