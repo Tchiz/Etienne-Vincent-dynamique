@@ -216,13 +216,13 @@ nav.principal ul li:hover, nav.principal ul li.isWorking{
 }
 
 nav.secondaire ul{
-	margin-left: -55px;
+	position : absolute;
+	top: 30%;
+	left:0px;
+	padding: 0px;
 	background: none;
 	font-size: 0.9em;
-	position: absolute;
 	z-index: 2;
-	top: 150px;
-	left: 80px;
 }
 
 span.sous-secondaire, span.sous-secondaire a{
@@ -253,6 +253,7 @@ nav.secondaire ul li{
 nav.secondaire ul li:hover, nav.secondaire ul li.actif{
 	width: 150px;
 	color: #FFA07A;
+	border-right: thin solid #666666;
 }
 
 nav.principal ul, li, div.homepage{

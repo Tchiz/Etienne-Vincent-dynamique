@@ -32,10 +32,7 @@ function getMusicGroupMenuList(){
 	);
 	
 	return array( 
-		array( 'label' => 'Etienne Vincent Quartet', 'link' => 'etienneVincentQuartet', 'menuList' => $etienneVincentQuartetMenuList ),
-		array( 'label' => 'Swolkin\'', 'link' => 'swolkin'),
-		array( 'label' => 'Melophonic Quartet', 'link' => 'melophonicQuartet'),
-		array( 'label' => 'Siam trio', 'link' => 'siamTrio')
+		array( 'label' => 'Etienne Vincent Quartet', 'link' => 'etienneVincentQuartet', 'menuList' => $etienneVincentQuartetMenuList )
 	);
 }
 
@@ -117,6 +114,11 @@ Route::get( 'groupes/etienneVincentQuartet', function()
 	return vipTemplate( 'vip_presentation', 'Quartet' );
 });
 
+Route::get( 'groupes/etienneVincentQuartet/EtienneVincent', function()
+{
+	return templateWithBandeau( 'biographie' );
+});
+
 Route::get( 'groupes', function()
 {
 	return Redirect::to('groupes/etienneVincentQuartet');
@@ -124,7 +126,7 @@ Route::get( 'groupes', function()
 
 Route::get( 'groupes/etienneVincentQuartet/musiciens', function()
 {
-	return vipTemplate( 'vip_musiciens', 'quartet - Les musiciens' );
+	return vipTemplate( 'vip_musiciens', 'Quartet' );
 });
 
 /* Route::get( 'ateliers', function()

@@ -24,7 +24,7 @@
 							@if ( $subItem['link'] == Request::segment(3) )
 							<a class="actif" href="./{{ $subItem['link'] }}">{{ $subItem['label'] }}</a>
 							@else
-							<a href="./{{ $subItem['link'] }}">{{ $subItem['label'] }}</a>
+							<a href="{{ URL::to('groupes/'.$item['link'].'/'.$subItem['link']) }}">{{ $subItem['label'] }}</a>
 							@endif
 						@endforeach
 						</span>

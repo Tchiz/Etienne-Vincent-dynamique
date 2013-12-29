@@ -1,7 +1,14 @@
 div.vip{
-	width: 640px;
+	width: 100%;
 	margin: 0px;
-	margin-left: 120px;
+}
+
+div.vip *{
+	background: none;
+}
+
+div.vip h2{
+	background: #222222;
 }
 
 div.vip audio{
@@ -10,29 +17,7 @@ div.vip audio{
 	margin: auto;
 }
 
-div.vip p.introduction{
-	margin-left: 60px;
-}
-
-figure.presentation{
-	width: 640px;
-	margin: 0px;
-}
-
-figure.presentation img{
-	display: block;
-	width: 640px;
-	height: 360px;
-	margin: auto;
-}
-
-figure p {
-	padding-left : 15px;
-	padding-right : 15px;
-	text-indent: 30px;
-}
-
-figure.musicien figcaption{
+div.vip figure figcaption{
 	margin-top: 15px;
 	margin-bottom: 15px;
 	font-size: 1.2em;
@@ -40,7 +25,7 @@ figure.musicien figcaption{
 	text-align: center;
 }
 
-figure.musicien{
+div.vip figure{
 	border: 2px solid #FFA07A;
 	background: #111111;
 	padding: 5px;
@@ -49,22 +34,40 @@ figure.musicien{
 	margin-bottom: 15px;
 }
 
-figure.musicien *{
+div.vip figure *{
 	background-color: inherit;
 }
 
-figure.musicien p{
+div.vip figure p{
 	padding: 15px;
 	padding-bottom: 0px;
 	color: #bbbbbb;
 }
 
-figure.musicien img{
+div.vip figure.musicien img{
 	display: block;
 	width: 270px;
 	height: 270px;
 	margin: auto;
 }
+
+div.vip figure.presentation{
+	width: 100%;
+}
+
+figure.presentation img{
+	display: block;
+	margin: auto;
+
+}
+
+figure p {
+	padding-left : 15px;
+	padding-right : 15px;
+	text-indent: 30px;
+}
+
+
 
 div.vip article {
 	width: 100%;
