@@ -40,7 +40,7 @@
 		<header>Le 24 avril 2014</header>
 		Etienne Vincent Quartet
 		<footer>
-			&agrave; l'Entrep&ocirc;t (7 rue Francis de Pressens&eacute; 75014 Paris) &agrave; 21h30
+			&agrave; l'Entrep&ocirc;t (7 rue Francis de Pressens&eacute; 75014 Paris) &agrave; 21 h 30
 		</footer>
 	</article>
 	<br/>
