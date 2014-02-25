@@ -38,24 +38,20 @@ function getMusicGroupMenuList(){
 
 function standardTemplate( $subTemplate, $title, $withBandeau ){
 
-	$firstMenuList = getPrincipalMenuList();
-	
-	return View::make( $subTemplate, array( 
-		'firstMenuList' 	=> $firstMenuList,
-		'title'			=> $title,
+	$dynamicContent = array( 
+		'firstMenuList' => getPrincipalMenuList(),
 		'withBandeau' 	=> $withBandeau
-		) );
+	);
+	
+	return templateWithDynamicContent($subTemplate, $title, $dynamicContent);
 }
 
-function templateWithTwoMenus( $subTemplate, $title, $secondMenuList ){
-
-	$firstMenuList = getPrincipalMenuList();
-	
-	return View::make( $subTemplate, array(
-		'firstMenuList' 	=> $firstMenuList,
-		'title'			=> $title,
-		'secondMenuList'	=> $secondMenuList
-	) );
+function templateWithDynamicContent($template, $title, $dynamicContent){
+	$contents = array_merge(
+		array( 'title' => $title ), 
+		$dynamicContent
+	);
+	return View::make($template, $contents);
 }
 
 /* 						fonctions publiques 					*/
@@ -64,14 +60,38 @@ function templateWithBandeau( $subTemplate ){
 	return standardTemplate( $subTemplate, 'Guitariste', true );
 }
 
+/*
 function templateWithoutBandeau( $subTemplate, $title ){
 	return standardTemplate( $subTemplate, $title, false );
 }
+*/
 
-function vipTemplate ( $subTemplate, $title){
-	$secondMenuList = getMusicGroupMenuList();
-	return templateWithTwoMenus( $subTemplate, $title, $secondMenuList );
+function managementTemplate( $template, $title, $more ){
+	$content = array(
+		'firstMenuList' => array(
+			'label' => 'gestion des biographies',
+			'link' => 'gestionDesBiographies'
+		),
+		'withBandeau' 	=> false
+	);
+	$content = array_merge($content, $more);
+	return templateWithDynamicContent($template, $title, $content);
 }
+
+function vipTemplate( $template, $title, $more=null ){
+	$twoMenusContents = array(
+		'firstMenuList' 	=> getPrincipalMenuList(),
+		'secondMenuList'	=> getMusicGroupMenuList()
+	);
+	
+	$contents = $twoMenusContents;
+	if($more){
+		$contents = array_merge($twoMenusContents, $more);
+	}
+	
+	return templateWithDynamicContent($template, $title, $contents);
+}
+
 
 /* ---------------------- Gestion page par défaut ---------------- */
 
@@ -126,10 +146,47 @@ Route::get( 'groupes', function()
 
 Route::get( 'groupes/etienneVincentQuartet/musiciens', function()
 {
-	return vipTemplate( 'vip_musiciens', 'Quartet' );
+	return vipTemplate( 'vip_musiciens', 'Quartet', array( 'musiciens' => Musician::all()) );
 });
 
 /* Route::get( 'ateliers', function()
 {
 	return templateWithoutBandeau( 'workshop', 'workshop' );
 }); */
+
+// ------------ Administration du site
+
+Route::get( 'admin/gestionDesBiographies', function()
+{
+	// nom de la vue : gestion_musiciens
+	return managementTemplate( 'management', 'biographies', array( 'musiciens' => Musician::all()) );
+});
+
+Route::get( 'admin/editerUneBiographie', function(){
+	return managementTemplate(
+		'gestion_musiciens',
+		'biographies', 
+		array()
+	);
+});
+
+Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
+	$musician = array(
+		'firstname' => '',
+		'lastname' => '',
+		'instrument' => '',
+		'biography' => ''
+	);
+	
+	array_push(
+		$musician, 
+		'pictureName', 
+		Input::file('uploadedPicture.name')
+	);
+	foreach( $musician as $key => $value){
+		$musician[ $key ] = $_POST[ $key ];
+	}
+	
+	echo '<pre>'; print_r($musician);echo '</pre>';
+	//DB::table( 'musicians' )->insert($musician);
+}));

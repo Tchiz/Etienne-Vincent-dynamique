@@ -44,6 +44,10 @@ div.vip figure p{
 	color: #bbbbbb;
 }
 
+div.vip figure.musicien figcaption{
+	text-transform: capitalize;
+}
+
 div.vip figure.musicien img{
 	display: block;
 	width: 270px;
