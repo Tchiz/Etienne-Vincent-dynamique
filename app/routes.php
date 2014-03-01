@@ -69,8 +69,7 @@ function templateWithoutBandeau( $subTemplate, $title ){
 function managementTemplate( $template, $title, $more ){
 	$content = array(
 		'firstMenuList' => array(
-			'label' => 'gestion des biographies',
-			'link' => 'gestionDesBiographies'
+			array( 'label' => 'gestion des biographies', 'link' => '/admin/gestionDesBiographies' )
 		),
 		'withBandeau' 	=> false
 	);
@@ -182,6 +181,10 @@ Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
 		$musician[ $key ] = $_POST[ $key ];
 	}
 	
+	$filePath = 'media/images/';
 	$musician['pictureName'] = Input::file('uploadedPicture')->getClientOriginalName();
+	echo Input::file('uploadedPicture')->move($filePath , $musician['pictureName']);
+	echo Input::file('uploadedPicture')->getSize();
+	echo Input::file('uploadedPicture')->getClientOriginalExtension();
 	DB::table( 'musicians' )->insert($musician);
 }));

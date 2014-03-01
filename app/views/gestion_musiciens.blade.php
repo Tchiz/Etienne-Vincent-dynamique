@@ -1,5 +1,7 @@
 @extends ( 'template' )
 
+@include ( 'menu_principal' )
+
 @section( 'content' )
 <div>
 	{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/ajouterUneBiographie') ) }}
@@ -12,7 +14,7 @@
 	{{ Form::label( 'instrument', 'Son instrument : ' ) }}
 	{{ Form::text( 'instrument' ) }}
 	{{ Form::label( 'uploadedPicture', 'Son portrait : ' ) }}
-	{{ Form::hidden( 'MAX_FILE_SIZE', '20000' ) }}
+	{{ Form::hidden( 'MAX_FILE_SIZE', '1600000' ) }}
 	{{ Form::file( 'uploadedPicture' ) }}
 	<!-- 
 		Limiter la taille du fichier en poids et en hauteur/largeur

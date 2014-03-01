@@ -303,3 +303,41 @@ div.agenda article footer{
 div.agenda article footer{
 	font-size: 0.8em;
 }
+
+form{
+	margin: 15px;
+}
+
+form label{
+	display: block;
+}
+
+#management{
+	width: 100%;
+}
+
+#management div.item{
+	width: 100%;
+	background: #444444;
+	padding: 10px;
+}
+
+#management a{
+	float: left;
+	background: #444444;
+	padding: 10px;
+	margin: 10px;
+}
+
+#management a:hover{
+	border: #555555 thin solid;
+}
+
+#management div.item div{
+	background: transparent;
+}
+
+#management div.item div.button{
+	float: right;
+	cursor: pointer;
+}
