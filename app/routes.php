@@ -183,8 +183,8 @@ Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
 	
 	$filePath = 'media/images/';
 	$musician['pictureName'] = Input::file('uploadedPicture')->getClientOriginalName();
-	echo Input::file('uploadedPicture')->move($filePath , $musician['pictureName']);
 	echo Input::file('uploadedPicture')->getSize();
 	echo Input::file('uploadedPicture')->getClientOriginalExtension();
+	echo Input::file('uploadedPicture')->move($filePath , $musician['pictureName']);
 	DB::table( 'musicians' )->insert($musician);
 }));
