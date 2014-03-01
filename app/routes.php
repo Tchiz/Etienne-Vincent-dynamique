@@ -178,15 +178,10 @@ Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
 		'biography' => ''
 	);
 	
-	array_push(
-		$musician, 
-		'pictureName', 
-		Input::file('uploadedPicture.name')
-	);
 	foreach( $musician as $key => $value){
 		$musician[ $key ] = $_POST[ $key ];
 	}
 	
-	echo '<pre>'; print_r($musician);echo '</pre>';
-	//DB::table( 'musicians' )->insert($musician);
+	$musician['pictureName'] = Input::file('uploadedPicture')->getClientOriginalName();
+	DB::table( 'musicians' )->insert($musician);
 }));
