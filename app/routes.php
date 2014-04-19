@@ -28,7 +28,9 @@ function getPrincipalMenuList(){
 function getMusicGroupMenuList(){
 	$etienneVincentQuartetMenuList = array(
 		array( 'label' => 'Pr&eacute;sentation', 'link' => '' ),
-		array( 'label' => 'Musiciens', 'link' => 'musiciens' )
+		array( 'label' => 'Musiciens', 'link' => 'musiciens' ),
+		array( 'label' => 'Media', 'link' => 'media' ),
+		array( 'label' => 'Pro', 'link' => 'pro' )
 	);
 	
 	return array( 
@@ -146,6 +148,16 @@ Route::get( 'groupes', function()
 Route::get( 'groupes/etienneVincentQuartet/musiciens', function()
 {
 	return vipTemplate( 'vip_musiciens', 'Quartet', array( 'musiciens' => Musician::all()) );
+});
+
+Route::get( 'groupes/etienneVincentQuartet/media', function()
+{
+	return vipTemplate( 'vip_media', 'Quartet' );
+});
+
+Route::get( 'groupes/etienneVincentQuartet/pro', function()
+{
+	return vipTemplate( 'vip_pro', 'Quartet' );
 });
 
 /* Route::get( 'ateliers', function()

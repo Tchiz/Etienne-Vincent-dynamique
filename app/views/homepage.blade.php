@@ -5,14 +5,14 @@
 @section( 'content' )
 <div class="homepage">
 	<article>
-		<header>Trophees du sunside</header>
+		<header>L'entrepot</header>
 		<img 
-			src="./media/images/logo_sunsetsunside.png" 
-			alt="Sunset Sunside - Club de jazz parisien" 
-			title="Sunset Sunside - Club de jazz parisien" />
-		2eme prix de soliste aux trophées du Sunside avec Etienne Vincent Quartet
+			src="./media/images/logo_entrepot.png" 
+			alt="L'entrepôt - Votre biosphère à Paris" 
+			title="L'entrepôt - Votre biosphère à Paris" />
+		Etienne Vincent Quartet à l'entrepôt le jeudi 24 Avril 2014 à 21 h 30
 		<footer>
-			<a href="http://www.sunset-sunside.com/2013/9/artiste/1104/1749/">
+			<a href="http://lentrepot.fr/Etienne-Vincent-Quartet.html">
 				En savoir plus...
 			</a>
 		</footer>

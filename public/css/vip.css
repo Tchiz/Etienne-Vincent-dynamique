@@ -17,6 +17,10 @@ div.vip audio{
 	margin: auto;
 }
 
+div.vip figure.pro a:hover{
+	color: white;
+}
+
 div.vip figure figcaption{
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -68,7 +72,6 @@ figure.presentation img{
 figure p {
 	padding-left : 15px;
 	padding-right : 15px;
-	text-indent: 30px;
 }
 
 
