@@ -160,6 +160,16 @@ Route::get( 'groupes/etienneVincentQuartet/pro', function()
 	return vipTemplate( 'vip_pro', 'Quartet' );
 });
 
+Route::get( 'groupes/etienneVincentQuartet/media', function()
+{
+	return vipTemplate( 'vip_media', 'Quartet' );
+});
+
+Route::get( 'groupes/etienneVincentQuartet/pro', function()
+{
+	return vipTemplate( 'vip_pro', 'Quartet' );
+});
+
 /* Route::get( 'ateliers', function()
 {
 	return templateWithoutBandeau( 'workshop', 'workshop' );
