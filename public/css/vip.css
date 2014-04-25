@@ -69,6 +69,19 @@ figure.presentation img{
 
 }
 
+figure.presentation p{
+	text-align: center;
+}
+
+figure.presentation a{
+	text-decoration: underline;
+}
+
+figure.presentation a:hover{
+	text-decoration: none;
+	color: #ffffff;
+}
+
 figure p {
 	padding-left : 15px;
 	padding-right : 15px;
