@@ -21,7 +21,7 @@
 			<a href="{{ URL::to( 'media/images/etienneVincentQuartet_Pro_1.jpg') }}">
 				Photographie du groupe 1
 			</a><br/>
-			<a href="{{ URL::to( 'media/images/etienneVincentQuartet_Pro_1.jpg') }}">
+			<a href="{{ URL::to( 'media/images/etienneVincentQuartet_Pro_2.jpg') }}">
 				Photographie du groupe 2
 			</a>
 		</p>
