@@ -4,15 +4,21 @@
 
 @section( 'content' )
 <div>
-	{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/ajouterUneBiographie') ) }}
+	@if ($musicien['id'])
+		{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/modifierUneBiographie') ) }}
+		{{ Form::hidden( 'id', $musicien['id'] ) }}
+	@else
+		{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/ajouterUneBiographie') ) }}
+	@endif
+	
 	{{ Form::label( 'lastname', 'Nom du musicien : ' ) }}
-	{{ Form::text( 'lastname' ) }}
+	{{ Form::text( 'lastname', $musicien['lastname'] ) }}
 	{{ Form::label( 'firstname', 'Prénom du musicien : ' ) }}
-	{{ Form::text( 'firstname' ) }}
+	{{ Form::text( 'firstname', $musicien['firstname'] ) }}
 	{{ Form::label( 'biography', 'Sa biographie : ' ) }}
-	{{ Form::textarea( 'biography' ) }}
+	{{ Form::textarea( 'biography', $musicien['biography'] ) }}
 	{{ Form::label( 'instrument', 'Son instrument : ' ) }}
-	{{ Form::text( 'instrument' ) }}
+	{{ Form::text( 'instrument', $musicien['instrument'] ) }}
 	{{ Form::label( 'uploadedPicture', 'Son portrait : ' ) }}
 	{{ Form::hidden( 'MAX_FILE_SIZE', '1600000' ) }}
 	{{ Form::file( 'uploadedPicture' ) }}

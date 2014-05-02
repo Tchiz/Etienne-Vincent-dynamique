@@ -183,16 +183,33 @@ Route::get( 'admin/gestionDesBiographies', function()
 	return managementTemplate( 'management', 'biographies', array( 'musiciens' => Musician::all()) );
 });
 
-Route::get( 'admin/editerUneBiographie', function(){
+Route::get( 'admin/editerUneBiographie/{index?}', function($index = null){
+	//vérifier que l'identifiant correspond bien à un musicien
+	
+	$musicien = array(
+		'id' => $index,
+		'firstname' => '',
+		'lastname' => '',
+		'instrument' => '',
+		'biography' => '',
+		'estUnAjout' => 'true'
+	);
+	
+	if($index){
+		foreach($musicien as $key => $value){
+			$musicien[$key] = Musician::find($index)[$key];
+		}
+		$musicien['estUnAjout'] = false;
+	}
 	return managementTemplate(
 		'gestion_musiciens',
 		'biographies', 
-		array()
+		array('musicien' => $musicien)
 	);
 });
 
-Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
-	$musician = array(
+function getMusicianFromPostArray( $postArray ){
+	$musician  = array(
 		'firstname' => '',
 		'lastname' => '',
 		'instrument' => '',
@@ -200,13 +217,35 @@ Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
 	);
 	
 	foreach( $musician as $key => $value){
-		$musician[ $key ] = $_POST[ $key ];
+		$musician[ $key ] = $postArray[ $key ];
 	}
 	
-	$filePath = 'media/images/';
-	$musician['pictureName'] = Input::file('uploadedPicture')->getClientOriginalName();
+	return $musician;
+}
+
+function getPictureNameAndPutFileOnDirectory( $filePath ){
+	$pictureName = Input::file('uploadedPicture')->getClientOriginalName();
+	
 	echo Input::file('uploadedPicture')->getSize();
 	echo Input::file('uploadedPicture')->getClientOriginalExtension();
-	echo Input::file('uploadedPicture')->move($filePath , $musician['pictureName']);
+	
+	echo Input::file('uploadedPicture')->move($filePath , $pictureName);
+	
+	return $pictureName;
+}
+
+Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
+	$musician = getMusicianFromPostArray($_POST);
+	$musician['pictureName'] = getPictureNameAndPutFileOnDirectory( 'media/images/' );
 	DB::table( 'musicians' )->insert($musician);
+}));
+
+Route::any('admin/modifierUneBiographie', array( 'before' => 'csrf', function(){
+	$musician = getMusicianFromPostArray($_POST);
+	if(Input::hasFile( 'uploadedPicture' )){
+		$musician['pictureName'] = getPictureNameAndPutFileOnDirectory( 'media/images/');
+	}
+	DB::table( 'musicians' )
+		->where( 'id', '=',  $_POST[ 'id' ])
+		->update( $musician );
 }));
