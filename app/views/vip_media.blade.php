@@ -18,25 +18,32 @@
 			<a href="http://www.virginmega.fr/musique/album/courants-etienne-vincent-quartet-117384665,page1.htm"> Sur Virgin Mega</a>
 		</p>
 	</figure>
-<!-- 	<figure class="presentation" style="float:left;">
+	
+ 	<figure class="presentation">
 		<figcaption>Musiques de l'EP Courants</figcaption>
-		<div style="background: pink;float:left;width: 20%;height: 55px;">In the wind</div>
-		<audio controls style="background: pink;float:left;width: 75%;height: 55px;">
-			<source src="{{ URL::to( 'media/musique/inTheWind.ogg' ) }}" type="audio/ogg">
-			<source src="{{ URL::to( 'media/musique/inTheWind.mp3' ) }}" type="audio/mpeg">
-		</audio>
-		<p style="background: pink;float:left;width: 20%;">The Lake</p>
-		<audio controls style="float:left;width: 75%;">
-			<source src="{{ URL::to( 'media/musique/theLake.ogg' ) }}" type="audio/ogg">
-			<source src="{{ URL::to( 'media/musique/theLake.mp3' ) }}" type="audio/mpeg">
-		</audio>
-		<p style="float:left;width: 20%;">Extraits</p>
-		<audio controls style="float:left;width: 75%;">
-			<source src="{{ URL::to( 'media/musique/courants_extraits.ogg' ) }}" type="audio/ogg">
-			<source src="{{ URL::to( 'media/musique/courants_extraits.mp3' ) }}" type="audio/mpeg">
-			voir avec JQuery pour plus d'option
-			Your browser does not support the audio element.
-		</audio>
-	</figure>  -->
+		<article class="musicPlayer">
+			<h2>In the wind</h2>
+			<audio controls>
+				<source src="{{ URL::to( 'media/musique/inTheWind.ogg' ) }}" type="audio/ogg">
+				<source src="{{ URL::to( 'media/musique/inTheWind.mp3' ) }}" type="audio/mpeg">
+			</audio>
+		</article>
+		<article class="musicPlayer">
+			<h2>The Lake</h2>
+			<audio controls>
+				<source src="{{ URL::to( 'media/musique/theLake.ogg' ) }}" type="audio/ogg">
+				<source src="{{ URL::to( 'media/musique/theLake.mp3' ) }}" type="audio/mpeg">
+			</audio>
+		</article>
+		<article class="musicPlayer">
+			<h2>Extraits</h2>
+			<audio controls>
+				<source src="{{ URL::to( 'media/musique/courants_extraits.ogg' ) }}" type="audio/ogg">
+				<source src="{{ URL::to( 'media/musique/courants_extraits.mp3' ) }}" type="audio/mpeg">
+				<!-- voir avec JQuery pour plus d'option -->
+				<!-- Your browser does not support the audio element. -->
+			</audio>
+		</article>
+	</figure>
 </div>
 @stop

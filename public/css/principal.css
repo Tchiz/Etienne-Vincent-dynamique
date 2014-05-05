@@ -141,7 +141,7 @@ div.homepage article{
 	border: 2px solid #FFA07A;
 }
 
-div.homepage article header, h2{
+div.homepage article header{
 	/*Attention : AmaticSCRegular ne gère pas les accents !*/
 	font-family: AmaticSCRegular, serif;
 	font-size: 1.6em;
@@ -173,6 +173,10 @@ h1 .mini{
 }
 
 h2{
+	/*Attention : AmaticSCRegular ne gère pas les accents !*/
+	font-family: AmaticSCRegular, serif;
+	font-size: 1.6em;
+	color: #ffffff;
 	margin: 0px;
 	text-align: center;
 }

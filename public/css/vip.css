@@ -87,10 +87,12 @@ figure p {
 	padding-right : 15px;
 }
 
-
-
 div.vip article {
 	width: 100%;
+}
+
+article.musicPlayer{
+	float:none;
 }
 
 figure.audio figcaption{
