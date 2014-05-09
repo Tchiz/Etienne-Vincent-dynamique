@@ -15,6 +15,13 @@
 	</figure>
 	<figure class="pro">
 		<figcaption>
+			<a href="{{ URL::to( 'media/images/plan_de_scene.png') }}">
+				Plan de scène
+			</a>
+		</figcaption>
+	</figure>
+	<figure class="pro">
+		<figcaption>
 			Photographies en HD
 		</figcaption>
 		<p style="text-align: center;">
