@@ -195,7 +195,7 @@ Route::get( 'admin/editerUneBiographie/{index?}', function($index = null){
 		'estUnAjout' => 'true'
 	);
 	
-	if($index){
+	if($index && Musician::find($index)){
 		foreach($musicien as $key => $value){
 			$musicien[$key] = Musician::find($index)[$key];
 		}
