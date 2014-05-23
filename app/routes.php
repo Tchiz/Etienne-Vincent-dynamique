@@ -249,3 +249,9 @@ Route::any('admin/modifierUneBiographie', array( 'before' => 'csrf', function(){
 		->where( 'id', '=',  $_POST[ 'id' ])
 		->update( $musician );
 }));
+
+Route::any('admin/supprimerUneBiographie/{index?}', function($index = null){
+	DB::table( 'musicians' )
+		->where( 'id', '=',  $index)
+		->delete();
+});
