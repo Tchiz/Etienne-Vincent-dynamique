@@ -326,14 +326,19 @@ form label{
 	padding: 10px;
 }
 
-#management a.button{
+#management input.button{
+	cursor: pointer;
+}
+
+#management a.button, #management input.button{
 	float: left;
 	background: #444444;
 	padding: 10px;
 	margin: 10px;
+	border: none;
 }
 
-#management a.button:hover{
+#management a.button:hover, #management input.button:hover{
 	border: #555555 thin solid;
 }
 

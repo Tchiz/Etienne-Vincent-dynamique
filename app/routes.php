@@ -68,7 +68,7 @@ function templateWithoutBandeau( $subTemplate, $title ){
 }
 */
 
-function managementTemplate( $template, $title, $more ){
+function managementTemplate( $template, $title, $more=array() ){
 	$content = array(
 		'firstMenuList' => array(
 			array( 'label' => 'gestion des biographies', 'link' => '/admin/gestionDesBiographies' )
@@ -183,28 +183,38 @@ Route::get( 'admin/gestionDesBiographies', function()
 	return managementTemplate( 'management', 'biographies', array( 'musiciens' => Musician::all()) );
 });
 
-Route::get( 'admin/editerUneBiographie/{index?}', function($index = null){
-	//vérifier que l'identifiant correspond bien à un musicien
-	
-	$musicien = array(
+function getMusicianFromIndex( $index ){
+	$musician = array(
 		'id' => $index,
 		'firstname' => '',
 		'lastname' => '',
 		'instrument' => '',
-		'biography' => '',
-		'estUnAjout' => 'true'
+		'biography' => ''
 	);
-	
 	if($index && Musician::find($index)){
-		foreach($musicien as $key => $value){
-			$musicien[$key] = Musician::find($index)[$key];
+		foreach($musician as $key => $value){
+			$musician[$key] = Musician::find($index)[$key];
 		}
-		$musicien['estUnAjout'] = false;
 	}
+	return $musician;
+}
+
+Route::get( 'admin/editerUneBiographie/{index?}', function($index = null){
+	//vérifier que l'identifiant correspond bien à un musicien
+	
+	$musicien = getMusicianFromIndex( $index );
+	$musicien_plus = array_merge($musicien, array('estUnAjout' => 'true'));
+	if($index && Musician::find($index)){
+		$estUnAjout = false;
+	}else{
+		$estUnAjout = true;
+	}
+	$musicien_plus = array_merge($musicien, array('estUnAjout' => $estUnAjout));
+	
 	return managementTemplate(
 		'gestion_musiciens',
 		'biographies', 
-		array('musicien' => $musicien)
+		array('musicien' => $musicien_plus)
 	);
 });
 
@@ -238,6 +248,7 @@ Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
 	$musician = getMusicianFromPostArray($_POST);
 	$musician['pictureName'] = getPictureNameAndPutFileOnDirectory( 'media/images/' );
 	DB::table( 'musicians' )->insert($musician);
+	return Redirect::to('admin/gestionDesBiographies');
 }));
 
 Route::any('admin/modifierUneBiographie', array( 'before' => 'csrf', function(){
@@ -248,10 +259,21 @@ Route::any('admin/modifierUneBiographie', array( 'before' => 'csrf', function(){
 	DB::table( 'musicians' )
 		->where( 'id', '=',  $_POST[ 'id' ])
 		->update( $musician );
+	return Redirect::to('admin/gestionDesBiographies');
 }));
+
+Route::any('admin/validationSupprUneBiographie/{index?}', function($index = null){
+	$musicien = getMusicianFromIndex( $index );
+	return managementTemplate(
+		'gestion_suppression_biographie',
+		'biographies',
+		array( 'musicien' => $musicien)
+	);
+});
 
 Route::any('admin/supprimerUneBiographie/{index?}', function($index = null){
 	DB::table( 'musicians' )
 		->where( 'id', '=',  $index)
 		->delete();
+	return Redirect::to('admin/gestionDesBiographies');
 });
