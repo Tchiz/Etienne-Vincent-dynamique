@@ -45,5 +45,12 @@
 			</audio>
 		</article>
 	</figure>
+	
+ 	<figure class="presentation">
+		<figcaption>Vidéo</figcaption>
+		<article class="musicPlayer">
+			<video class="videoPlayer" controls src="{{ URL::to( 'media/video/etienne_vincent_quartet_hope.mp4' ) }}">Hope interprété par Etienne Vincent Quartet</video>
+		</article>
+	</figure>
 </div>
 @stop
