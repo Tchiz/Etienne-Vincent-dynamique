@@ -272,6 +272,8 @@ Route::any('admin/validationSupprUneBiographie/{index?}', function($index = null
 });
 
 Route::any('admin/supprimerUneBiographie/{index?}', function($index = null){
+	$pictureName = Musician::find($index)['pictureName'];
+	File::delete('media/images/'.$pictureName);
 	DB::table( 'musicians' )
 		->where( 'id', '=',  $index)
 		->delete();
