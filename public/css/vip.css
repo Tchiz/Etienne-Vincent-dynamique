@@ -95,10 +95,6 @@ article.musicPlayer{
 	float:none;
 }
 
-video.videoPlayer{
-	width: 800px;
-}
-
 figure.audio figcaption{
 	margin: 15px;
 }
