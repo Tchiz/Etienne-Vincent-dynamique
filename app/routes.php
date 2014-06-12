@@ -68,17 +68,6 @@ function templateWithoutBandeau( $subTemplate, $title ){
 }
 */
 
-function managementTemplate( $template, $title, $more=array() ){
-	$content = array(
-		'firstMenuList' => array(
-			array( 'label' => 'gestion des biographies', 'link' => '/admin/gestionDesBiographies' )
-		),
-		'withBandeau' 	=> false
-	);
-	$content = array_merge($content, $more);
-	return templateWithDynamicContent($template, $title, $content);
-}
-
 function vipTemplate( $template, $title, $more=null ){
 	$twoMenusContents = array(
 		'firstMenuList' 	=> getPrincipalMenuList(),
@@ -177,105 +166,24 @@ Route::get( 'groupes/etienneVincentQuartet/pro', function()
 
 // ------------ Administration du site
 
-Route::get( 'admin/gestionDesBiographies', function()
-{
-	// nom de la vue : gestion_musiciens
-	return managementTemplate( 'management', 'biographies', array( 'musiciens' => Musician::all()) );
-});
+// voir pour CSRF
 
-function getMusicianFromIndex( $index ){
-	$musician = array(
-		'id' => $index,
-		'firstname' => '',
-		'lastname' => '',
-		'instrument' => '',
-		'biography' => ''
-	);
-	if($index && Musician::find($index)){
-		foreach($musician as $key => $value){
-			$musician[$key] = Musician::find($index)[$key];
-		}
-	}
-	return $musician;
-}
+Route::get( 'admin/gestionDesBiographies', 'ManagementController@gestionDesBiographies');
 
-Route::get( 'admin/editerUneBiographie/{index?}', function($index = null){
-	//vérifier que l'identifiant correspond bien à un musicien
-	
-	$musicien = getMusicianFromIndex( $index );
-	$musicien_plus = array_merge($musicien, array('estUnAjout' => 'true'));
-	if($index && Musician::find($index)){
-		$estUnAjout = false;
-	}else{
-		$estUnAjout = true;
-	}
-	$musicien_plus = array_merge($musicien, array('estUnAjout' => $estUnAjout));
-	
-	return managementTemplate(
-		'gestion_musiciens',
-		'biographies', 
-		array('musicien' => $musicien_plus)
-	);
-});
+Route::get( 'admin/gestionDesGroupesVIP', 'ManagementController@gestionDesGroupesVIP');
 
-function getMusicianFromPostArray( $postArray ){
-	$musician  = array(
-		'firstname' => '',
-		'lastname' => '',
-		'instrument' => '',
-		'biography' => ''
-	);
-	
-	foreach( $musician as $key => $value){
-		$musician[ $key ] = $postArray[ $key ];
-	}
-	
-	return $musician;
-}
+Route::get( 'admin/editerUneBiographie/{index?}', 'ManagementController@displayEditAMusicianForm');
 
-function getPictureNameAndPutFileOnDirectory( $filePath ){
-	$pictureName = Input::file('uploadedPicture')->getClientOriginalName();
-	
-	echo Input::file('uploadedPicture')->getSize();
-	echo Input::file('uploadedPicture')->getClientOriginalExtension();
-	
-	echo Input::file('uploadedPicture')->move($filePath , $pictureName);
-	
-	return $pictureName;
-}
+Route::get( 'admin/editerUnGroupeVIP', 'ManagementController@displayEditAGroupVIPForm' );
 
-Route::any( 'admin/ajouterUneBiographie', array( 'before' => 'csrf', function(){
-	$musician = getMusicianFromPostArray($_POST);
-	$musician['pictureName'] = getPictureNameAndPutFileOnDirectory( 'media/images/' );
-	DB::table( 'musicians' )->insert($musician);
-	return Redirect::to('admin/gestionDesBiographies');
-}));
+Route::any( 'admin/ajouterUneBiographie', 'ManagementController@addAMusician');
 
-Route::any('admin/modifierUneBiographie', array( 'before' => 'csrf', function(){
-	$musician = getMusicianFromPostArray($_POST);
-	if(Input::hasFile( 'uploadedPicture' )){
-		$musician['pictureName'] = getPictureNameAndPutFileOnDirectory( 'media/images/');
-	}
-	DB::table( 'musicians' )
-		->where( 'id', '=',  $_POST[ 'id' ])
-		->update( $musician );
-	return Redirect::to('admin/gestionDesBiographies');
-}));
+Route::any( 'admin/ajouterUnGroupeVIP', 'ManagementController@addAGroupVIP' );
 
-Route::any('admin/validationSupprUneBiographie/{index?}', function($index = null){
-	$musicien = getMusicianFromIndex( $index );
-	return managementTemplate(
-		'gestion_suppression_biographie',
-		'biographies',
-		array( 'musicien' => $musicien)
-	);
-});
+Route::any('admin/modifierUneBiographie', 'ManagementController@updateAMusician' );
 
-Route::any('admin/supprimerUneBiographie/{index?}', function($index = null){
-	$pictureName = Musician::find($index)['pictureName'];
-	File::delete('media/images/'.$pictureName);
-	DB::table( 'musicians' )
-		->where( 'id', '=',  $index)
-		->delete();
-	return Redirect::to('admin/gestionDesBiographies');
-});
+Route::any('admin/validationSupprUneBiographie/{index?}', 'ManagementController@displayBiographyDeleteConfirmPage');
+
+Route::any('admin/validationSupprUnGroupeVIP/{index?}', 'ManagementController@displayGroupDeleteConfirmPage');
+
+Route::any('admin/supprimerUneBiographie/{index?}', 'ManagementController@deleteAMusician');

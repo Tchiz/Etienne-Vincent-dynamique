@@ -4,13 +4,15 @@
 
 @section( 'content' )
 <div id="management">
-	@foreach( $musiciens as $musicien )
+	@foreach( $items as $item )
 		<div class="item">
-			<div>{{ $musicien->firstname.' '.$musicien->lastname }}</div>
-			<div class="button"><a href="./editerUneBiographie/{{ $musicien->id }}">+</a></div>
-			<div class="button"><a href="./validationSupprUneBiographie/{{ $musicien->id }}">-</a></div>
+			<div>{{ $item['label'] }}</div>
+			<div class="button"><a href="./{{ $editURL }}/{{ $item['id'] }}">+</a></div>
+			@if ( $deleteURL )
+			<div class="button"><a href="./{{ $deleteURL }}/{{ $item['id'] }}">-</a></div>
+			@endif
 		</div>
 	@endforeach
-	<a class="button" href="./editerUneBiographie">Ajouter une biographie</a>
+	<a class="button" href="./{{ $editURL }}">{{ $buttonText }}</a>
 </div>
 @stop
