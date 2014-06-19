@@ -146,7 +146,7 @@ class ManagementController extends BaseController {
 	}
 	
 	public function addAGroupVIP(){
-		$group  = getGroupFromPostArray($_POST);
+		$group  = $this->getGroupFromPostArray($_POST);
 		
 		DB::table( 'groups_of_musicians' )->insert( $group );
 		return Redirect::to('admin/gestionDesGroupesVIP');
