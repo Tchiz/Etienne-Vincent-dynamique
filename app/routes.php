@@ -174,7 +174,7 @@ Route::get( 'admin/gestionDesGroupesVIP', 'ManagementController@gestionDesGroupe
 
 Route::get( 'admin/editerUneBiographie/{index?}', 'ManagementController@displayEditAMusicianForm');
 
-Route::get( 'admin/editerUnGroupeVIP', 'ManagementController@displayEditAGroupVIPForm' );
+Route::get( 'admin/editerUnGroupeVIP/{index?}', 'ManagementController@displayEditAGroupVIPForm' );
 
 Route::any( 'admin/ajouterUneBiographie', 'ManagementController@addAMusician');
 
@@ -182,8 +182,12 @@ Route::any( 'admin/ajouterUnGroupeVIP', 'ManagementController@addAGroupVIP' );
 
 Route::any('admin/modifierUneBiographie', 'ManagementController@updateAMusician' );
 
+Route::any('admin/modifierUnGroupeVIP', 'ManagementController@updateAGroup' );
+
 Route::any('admin/validationSupprUneBiographie/{index?}', 'ManagementController@displayBiographyDeleteConfirmPage');
 
 Route::any('admin/validationSupprUnGroupeVIP/{index?}', 'ManagementController@displayGroupDeleteConfirmPage');
 
 Route::any('admin/supprimerUneBiographie/{index?}', 'ManagementController@deleteAMusician');
+
+Route::any('admin/supprimerUnGroupeVIP/{index?}', 'ManagementController@deleteAGroup');

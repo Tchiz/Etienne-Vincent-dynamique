@@ -48,6 +48,22 @@ class ManagementController extends BaseController {
 		return $musician;
 	}
 	
+	function getGroupFromIndex( $index ){
+		$group = array(
+			'id' => $index,
+			'label' => '',
+			'description' => ''
+		);
+		
+		if($index && GroupOfMusicians::find($index)){
+			foreach($group as $key => $value){
+				$group[$key] = GroupOfMusicians::find($index)[$key];
+			}
+		}
+		
+		return $group;
+	}
+	
 	function getMusicianFromPostArray( $postArray ){
 		$musician  = array(
 			'firstname' => '',
@@ -61,6 +77,19 @@ class ManagementController extends BaseController {
 		}
 		
 		return $musician;
+	}
+	
+	function getGroupFromPostArray( $postArray ){
+		$group = array(
+			'label' => '',
+			'description' => ''
+		);
+		
+		foreach( $group as $key => $value){
+			$group[ $key ] = $postArray[ $key ];
+		}
+		
+		return $group;
 	}
 	
 	function getPictureNameAndPutFileOnDirectory( $filePath ){
@@ -117,14 +146,7 @@ class ManagementController extends BaseController {
 	}
 	
 	public function addAGroupVIP(){
-		$group  = array(
-			'label' => '',
-			'description' => ''
-		);
-		
-		foreach( $group as $key => $value){
-			$group[ $key ] = $_POST[ $key ];
-		}
+		$group  = getGroupFromPostArray($_POST);
 		
 		DB::table( 'groups_of_musicians' )->insert( $group );
 		return Redirect::to('admin/gestionDesGroupesVIP');
@@ -141,6 +163,14 @@ class ManagementController extends BaseController {
 		return Redirect::to('admin/gestionDesBiographies');
 	}
 	
+	public function updateAGroup(){
+		$group = $this->getGroupFromPostArray($_POST);
+		DB::table( 'groups_of_musicians' )
+			->where( 'id', '=',  $_POST[ 'id' ])
+			->update( $group );
+		return Redirect::to('admin/gestionDesGroupesVIP');
+	}
+	
 	public function deleteAMusician($index = null){
 		$pictureName = Musician::find($index)['pictureName'];
 		File::delete('media/images/'.$pictureName);
@@ -148,6 +178,13 @@ class ManagementController extends BaseController {
 			->where( 'id', '=',  $index)
 			->delete();
 		return Redirect::to('admin/gestionDesBiographies');
+	}
+	
+	public function deleteAGroup($index = null){
+		DB::table( 'groups_of_musicians' )
+			->where( 'id', '=',  $index)
+			->delete();
+		return Redirect::to('admin/gestionDesGroupesVIP');
 	}
 
 // ---functions for displaying page
@@ -183,28 +220,20 @@ class ManagementController extends BaseController {
 	}
 	
 	public function displayEditAMusicianForm($index = null){
-		//vérifier que l'identifiant correspond bien à un musicien
-
 		$musicien = $this->getMusicianFromIndex( $index );
-		$musicien_plus = array_merge($musicien, array('estUnAjout' => 'true'));
-		if($index && Musician::find($index)){
-			$estUnAjout = false;
-		}else{
-			$estUnAjout = true;
-		}
-		$musicien_plus = array_merge($musicien, array('estUnAjout' => $estUnAjout));
-
 		return $this->managementTemplate(
 			'gestion_musiciens',
 			'biographies', 
-			array('musicien' => $musicien_plus)
+			array('musicien' => $musicien)
 		);
 	}
 	
-	public function displayEditAGroupVIPForm(){
+	public function displayEditAGroupVIPForm($index = null){
+		$content = array( 'groupe' => $this->getGroupFromIndex( $index ) );
 		return $this->managementTemplate(
 			'gestion_groupe_musiciens',
-			'groupe VIP'
+			'groupe VIP',
+			$content
 		);
 	}
 }
