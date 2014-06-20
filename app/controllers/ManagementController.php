@@ -41,8 +41,9 @@ class ManagementController extends BaseController {
 			'biography' => ''
 		);
 		if($index && Musician::find($index)){
+			$musicien = Musician::find($index);
 			foreach($musician as $key => $value){
-				$musician[$key] = Musician::find($index)[$key];
+				$musician[$key] = $musicien[$key];
 			}
 		}
 		return $musician;
@@ -56,8 +57,9 @@ class ManagementController extends BaseController {
 		);
 		
 		if($index && GroupOfMusicians::find($index)){
+			$groupe = GroupOfMusicians::find($index);
 			foreach($group as $key => $value){
-				$group[$key] = GroupOfMusicians::find($index)[$key];
+				$group[$key] = $groupe[$key];
 			}
 		}
 		
@@ -172,7 +174,8 @@ class ManagementController extends BaseController {
 	}
 	
 	public function deleteAMusician($index = null){
-		$pictureName = Musician::find($index)['pictureName'];
+		$musicien = Musician::find($index);
+		$pictureName = $musicien['pictureName'];
 		File::delete('media/images/'.$pictureName);
 		DB::table( 'musicians' )
 			->where( 'id', '=',  $index)
