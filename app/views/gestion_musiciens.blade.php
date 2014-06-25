@@ -11,6 +11,8 @@
 		{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/ajouterUneBiographie') ) }}
 	@endif
 	
+	{{ Form::label( 'id_group_of_musicians', 'Fait parti du groupe : ' ) }}
+	{{ Form::select('id_group_of_musicians', $groups, $musicien['id_group']) }}
 	{{ Form::label( 'lastname', 'Nom du musicien : ' ) }}
 	{{ Form::text( 'lastname', $musicien['lastname'] ) }}
 	{{ Form::label( 'firstname', 'Prénom du musicien : ' ) }}

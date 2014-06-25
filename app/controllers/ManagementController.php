@@ -15,23 +15,6 @@ class ManagementController extends BaseController {
 		return View::make($template, $content);
 	}
 	
-	// ATTENTION cette fonciton n'est pas utlisée ---
-	
-	function gestionDItems(){
-		$items = array();
-		foreach( Musician::all() as $musicien ){
-			$items[] = array(
-				'id' => $musicien->id,
-				'label' => $musicien->firstname.' '.$musicien->lastname
-			);
-		}
-		return $this->managementTemplate( 'management', 'biographies', array(
-			'items' => $items,
-			'deleteURL' => 'validationSupprUneBiographie',
-			'editURL' => 'editerUneBiographie'
-		) );
-	}
-	
 	function getMusicianFromIndex( $index ){
 		$musician = array(
 			'id' => $index,
@@ -40,12 +23,19 @@ class ManagementController extends BaseController {
 			'instrument' => '',
 			'biography' => ''
 		);
+		
+		$id_group = '';
 		if($index && Musician::find($index)){
 			$musicien = Musician::find($index);
 			foreach($musician as $key => $value){
 				$musician[$key] = $musicien[$key];
 			}
+			// à quel groupe appartient ce musicien
+			$to_be_part_of = ToBePartOf::where('id_musician', '=', $index)->firstOrFail();
+			$id_group = $to_be_part_of['id_group_of_musicians'];
 		}
+		$musician['id_group'] = $id_group;
+		
 		return $musician;
 	}
 	
@@ -141,9 +131,22 @@ class ManagementController extends BaseController {
 	}
 	
 	public function addAMusician(){
-		$musician = $this->getMusicianFromPostArray($_POST);
-		$musician['pictureName'] = $this->getPictureNameAndPutFileOnDirectory( 'media/images/' );
-		DB::table( 'musicians' )->insert($musician);
+		$musicien = new Musician;
+		$musicien->lastname = $_POST['lastname'];
+		$musicien->firstname = $_POST['firstname'];
+		$musicien->instrument = $_POST['instrument'];
+		$musicien->biography = $_POST['biography'];
+		$musicien->pictureName = $this->getPictureNameAndPutFileOnDirectory( 'media/images/' );
+		
+		$musicien->save();
+		
+		// le nouveau musicien appartient à quel groupe ?
+		$to_be_part_of = new ToBePartOf;
+		$to_be_part_of->id_group_of_musicians = $_POST['id_group_of_musicians'];
+		$to_be_part_of->id_musician = $musicien->id;
+		
+		$to_be_part_of->save();
+		
 		return Redirect::to('admin/gestionDesBiographies');
 	}
 	
@@ -155,6 +158,7 @@ class ManagementController extends BaseController {
 	}
 	
 	public function updateAMusician(){
+		// voir si je garde getMusicianFromPostArray ou si je fais comme addAMusician
 		$musician = $this->getMusicianFromPostArray($_POST);
 		if(Input::hasFile( 'uploadedPicture' )){
 			$musician['pictureName'] = getPictureNameAndPutFileOnDirectory( 'media/images/');
@@ -224,10 +228,15 @@ class ManagementController extends BaseController {
 	
 	public function displayEditAMusicianForm($index = null){
 		$musicien = $this->getMusicianFromIndex( $index );
+		
+		foreach( GroupOfMusicians::all() as $groupVIP ){
+			$groups[ $groupVIP->id ] = $groupVIP->label;
+		}
+		
 		return $this->managementTemplate(
 			'gestion_musiciens',
 			'biographies', 
-			array('musicien' => $musicien)
+			array( 'musicien' => $musicien, 'groups' => $groups )
 		);
 	}
 	

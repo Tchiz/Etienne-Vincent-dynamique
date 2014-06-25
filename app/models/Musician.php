@@ -1,3 +1,5 @@
 <?php 
-	class Musician extends Eloquent {}
+	class Musician extends Eloquent {
+		public $timestamps = false;
+	}
 ?>
