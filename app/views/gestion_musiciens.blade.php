@@ -3,16 +3,25 @@
 @include ( 'menu_principal' )
 
 @section( 'content' )
-<div>
+<div>	
 	@if ($musicien['id'])
+	
+		<!-- le formulaire de liens vers des groupes n'apparaît que lorsque le musicien existe (= à la modification) -->
+		{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/GererGroupesDuMusicien/'.$musicien['id']) ) }}
+		{{ Form::label( 'id_group_of_musicians', 'Fait parti du groupe : ' ) }}
+		@foreach($groups as $group)
+			{{ Form::checkbox('options[]', $group['id'], isset($checkedGroupList[$group['id']])? true : false) }}
+			{{	$group['label'] }}
+		@endforeach
+		{{ Form::submit( 'Modifier les groupes liés' ) }}
+		{{ Form::close() }}
+		<!-- fin formulaire -->
+		
 		{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/modifierUneBiographie') ) }}
 		{{ Form::hidden( 'id', $musicien['id'] ) }}
 	@else
 		{{ Form::open( array( 'enctype' => 'multipart/form-data', 'url' => '/admin/ajouterUneBiographie') ) }}
 	@endif
-	
-	{{ Form::label( 'id_group_of_musicians', 'Fait parti du groupe : ' ) }}
-	{{ Form::select('id_group_of_musicians', $groups, $musicien['id_group']) }}
 	{{ Form::label( 'lastname', 'Nom du musicien : ' ) }}
 	{{ Form::text( 'lastname', $musicien['lastname'] ) }}
 	{{ Form::label( 'firstname', 'Prénom du musicien : ' ) }}

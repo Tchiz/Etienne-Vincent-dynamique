@@ -24,17 +24,12 @@ class ManagementController extends BaseController {
 			'biography' => ''
 		);
 		
-		$id_group = '';
 		if($index && Musician::find($index)){
 			$musicien = Musician::find($index);
 			foreach($musician as $key => $value){
 				$musician[$key] = $musicien[$key];
 			}
-			// à quel groupe appartient ce musicien
-			$to_be_part_of = ToBePartOf::where('id_musician', '=', $index)->firstOrFail();
-			$id_group = $to_be_part_of['id_group_of_musicians'];
 		}
-		$musician['id_group'] = $id_group;
 		
 		return $musician;
 	}
@@ -95,6 +90,14 @@ class ManagementController extends BaseController {
 		return $pictureName;
 	}
 	
+	
+	function addGroupLinkForThisMusician($groupId, $musicianId){
+		$toBePartOf = new ToBePartOf;
+		$toBePartOf->id_musician = $musicianId;
+		$toBePartOf->id_group_of_musicians = $groupId;
+		$toBePartOf->save();
+	}
+	
 	// --- fonctions publiques
 	
 	public function gestionDesBiographies(){
@@ -130,6 +133,47 @@ class ManagementController extends BaseController {
 		) );
 	}
 	
+	public function updateToBePartOf( $musicianId ){
+		//si musicianId est null => erreur !
+		
+		$newGroupIdList = isset($_POST['options']) ? $_POST['options']: array();
+		$toBePartList = ToBePartOf::where('id_musician', '=', $musicianId)->get();
+		
+		if(sizeof($toBePartList) == 0)
+		{
+			foreach($newGroupIdList as $newGroupId)
+			{
+				$this->addGroupLinkForThisMusician($newGroupId, $musicianId);
+			}
+			return Redirect::to('admin/editerUneBiographie/'.$musicianId);
+		}
+		
+		foreach($toBePartList as $toBePart)
+		{
+			$currentGroupIdList[] = $toBePart['id_group_of_musicians'];
+		}
+		
+		foreach($currentGroupIdList as $currentGroupId)
+		{
+			if(!in_array($currentGroupId, $newGroupIdList))
+			{
+				DB::table( 'to_be_part_of' )
+				->whereRaw( 'id_musician = ? and id_group_of_musicians = ?', array($musicianId, $currentGroupId))
+				->delete();
+			}
+		}
+		
+		foreach($newGroupIdList as $newGroupId)
+		{
+			if(!in_array($newGroupId, $currentGroupIdList))
+			{
+				$this->addGroupLinkForThisMusician($newGroupId, $musicianId);
+			}
+		}
+
+		return Redirect::to('admin/editerUneBiographie/'.$musicianId);
+	}
+	
 	public function addAMusician(){
 		$musicien = new Musician;
 		$musicien->lastname = $_POST['lastname'];
@@ -139,13 +183,6 @@ class ManagementController extends BaseController {
 		$musicien->pictureName = $this->getPictureNameAndPutFileOnDirectory( 'media/images/' );
 		
 		$musicien->save();
-		
-		// le nouveau musicien appartient à quel groupe ?
-		$to_be_part_of = new ToBePartOf;
-		$to_be_part_of->id_group_of_musicians = $_POST['id_group_of_musicians'];
-		$to_be_part_of->id_musician = $musicien->id;
-		
-		$to_be_part_of->save();
 		
 		return Redirect::to('admin/gestionDesBiographies');
 	}
@@ -191,6 +228,7 @@ class ManagementController extends BaseController {
 		DB::table( 'groups_of_musicians' )
 			->where( 'id', '=',  $index)
 			->delete();
+		// TODO : supprimer les liens ToBePartOf de ce groupe
 		return Redirect::to('admin/gestionDesGroupesVIP');
 	}
 
@@ -230,13 +268,27 @@ class ManagementController extends BaseController {
 		$musicien = $this->getMusicianFromIndex( $index );
 		
 		foreach( GroupOfMusicians::all() as $groupVIP ){
-			$groups[ $groupVIP->id ] = $groupVIP->label;
+			$groups[] = array(
+				'id' =>  $groupVIP->id,
+				'label' => $groupVIP->label
+				);
+		}
+		
+		$checkedGroupList = array();
+		$toBePartOfList = ToBePartOf::where('id_musician', '=', $index)->get();
+		foreach($toBePartOfList as $toBePartOf)
+		{
+			$checkedGroupList[$toBePartOf['id_group_of_musicians']] = "checked";
 		}
 		
 		return $this->managementTemplate(
 			'gestion_musiciens',
 			'biographies', 
-			array( 'musicien' => $musicien, 'groups' => $groups )
+			array( 
+				'musicien' => $musicien, 
+				'groups' => $groups,
+				'checkedGroupList' => $checkedGroupList
+			)
 		);
 	}
 	

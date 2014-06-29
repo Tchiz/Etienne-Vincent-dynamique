@@ -184,6 +184,8 @@ Route::any('admin/modifierUneBiographie', 'ManagementController@updateAMusician'
 
 Route::any('admin/modifierUnGroupeVIP', 'ManagementController@updateAGroup' );
 
+Route::any('admin/GererGroupesDuMusicien/{index?}', 'ManagementController@updateToBePartOf' );
+
 Route::any('admin/validationSupprUneBiographie/{index?}', 'ManagementController@displayBiographyDeleteConfirmPage');
 
 Route::any('admin/validationSupprUnGroupeVIP/{index?}', 'ManagementController@displayGroupDeleteConfirmPage');
