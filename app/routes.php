@@ -92,6 +92,14 @@ App::missing( function( $exception ){
 	) );
 } );
 
+
+// TODO : revoir la gestion d'erreur (missing ne marche plus)
+App::error(function(FileException $exception)
+{
+    return 'L\'image que tu essais de télécharger n\'est pas bonne !';
+});
+
+
 Route::get( '/', function()
 {
 	return templateWithBandeau( 'homepage' );
@@ -136,7 +144,15 @@ Route::get( 'groupes', function()
 
 Route::get( 'groupes/etienneVincentQuartet/musiciens', function()
 {
-	return vipTemplate( 'vip_musiciens', 'Quartet', array( 'musiciens' => Musician::all()) );
+	$etienneVincentQuartetId = GroupOfMusicians::where('label', 'Etienne Vincent Quartet')->first()->id;
+	$musicianList = DB::table('musicians')
+		->join('to_be_part_of', function($join){
+			$join->on('musicians.id', '=', 'to_be_part_of.id_musician');
+		})
+		->where('to_be_part_of.id_group_of_musicians', '=', $etienneVincentQuartetId)
+		->get();
+	
+	return vipTemplate( 'vip_musiciens', 'Quartet', array( 'musiciens' => $musicianList ) );
 });
 
 Route::get( 'groupes/etienneVincentQuartet/media', function()

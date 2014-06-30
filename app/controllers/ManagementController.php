@@ -81,8 +81,13 @@ class ManagementController extends BaseController {
 	
 	function getPictureNameAndPutFileOnDirectory( $filePath ){
 		$pictureName = Input::file('uploadedPicture')->getClientOriginalName();
-		
+
+		echo 'Si tu vois ce message, c\'est que ton image n\'est pas conforme. La taille maximale est de ';
+		echo $_POST['MAX_FILE_SIZE'];
+		echo ' ko. Le fichier est ';
+		echo 'de la taille [';
 		echo Input::file('uploadedPicture')->getSize();
+		echo '] est de l\'extension ';
 		echo Input::file('uploadedPicture')->getClientOriginalExtension();
 		
 		echo Input::file('uploadedPicture')->move($filePath , $pictureName);
@@ -198,7 +203,7 @@ class ManagementController extends BaseController {
 		// voir si je garde getMusicianFromPostArray ou si je fais comme addAMusician
 		$musician = $this->getMusicianFromPostArray($_POST);
 		if(Input::hasFile( 'uploadedPicture' )){
-			$musician['pictureName'] = getPictureNameAndPutFileOnDirectory( 'media/images/');
+			$musician['pictureName'] = $this->getPictureNameAndPutFileOnDirectory( 'media/images/');
 		}
 		DB::table( 'musicians' )
 			->where( 'id', '=',  $_POST[ 'id' ])

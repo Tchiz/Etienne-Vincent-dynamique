@@ -30,7 +30,7 @@
 	{{ Form::textarea( 'biography', $musicien['biography'] ) }}
 	{{ Form::label( 'instrument', 'Son instrument : ' ) }}
 	{{ Form::text( 'instrument', $musicien['instrument'] ) }}
-	{{ Form::label( 'uploadedPicture', 'Son portrait : ' ) }}
+	{{ Form::label( 'uploadedPicture', 'Son portrait (270 x 270 pixels): ' ) }}
 	{{ Form::hidden( 'MAX_FILE_SIZE', '1600000' ) }}
 	{{ Form::file( 'uploadedPicture' ) }}
 	<!-- 
